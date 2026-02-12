@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADSO 3314566</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Imperial+Script&family=Shadows+Into+Light&display=swap');
         body {
-            background: linear-gradient(rgb(255, 255, 255), rgba(14, 194, 83, 0.811));
-            color: white
-            font-family: sans-serif; 
+            background: linear-gradient(hsl(0, 0%, 0%), #900cddc7);
+            color: white;
+            font-family: "Shadows Into Light", cursive;
             display: flex;
             justify-content: center;
-            aling-items: center;
+            align-items: center;
             min-height: 100dvh;
             main {
                 h1 {
@@ -32,15 +33,70 @@
                     font-size: 1.4rem;
                 }
             }
-        }
+        menu {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                a:link, a:visited {
+                    background-color: rgba(225, 103, 255, 0.918);
+                    color: hsl(315, 92%, 15%);
+                    display: flex;
+                    border-radius: 12rem;
+                    align-items: center;
+                    text-decoration: none;
+                    span {
+                        background-color: lch(100% 0.01 296.81);
+                        border-radius: 50%;
+                        font-size: 2rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 80px;
+                        width: 80px;
+                    }
+                    h4 {
+                        margin: 0;
+                    }
+                    small {
+
+                    }
+                }
+            }
     </style>
 </head>
 <body>
 </body>
 <main>
     <h1>ADSO3314566</h1>
-    
-    <img src="imagesver.jpg" alt=""">
+    <img src="clawdin.jpg" alt=""">
     <h4>Majo Velez</h4>
-</main>
-</html>
+    <menu>
+        <a href="01-emmet/">
+            <span>01</span>
+            <aside>
+                <h4>Html</h4>
+                <small>Structure - Hypertext Markup Language</small>
+            </aside>
+        </a>
+                <a href="02-emmet/">
+            <span>02</span>
+            <aside>
+                <h4>Emmet</h4>
+                <small>Structure - Hypertext Markup Language</small>
+            </aside>
+        </a>
+                <a href="03-emmet/">
+            <span>03</span>
+            <aside>
+                <h4>Css</h4>
+                <small>Structure - Hypertext Markup Language</small>
+            </aside>
+        </a>
+                <a href="04-emmet/">
+            <span>04</span>
+            <aside>
+                <h4>Javascript</h4>
+                <small>Structure - Hypertext Markup Language</small>
+            </aside>
+        </a>
+    </menu>
