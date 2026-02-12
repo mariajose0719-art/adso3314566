@@ -17,6 +17,6 @@
 
 ![MAJO](https://adso3314566-five.vercel.app/imagesver.jpg)
 
-[ADSO Files DRIVE](httpss://tinyurl.com/wnkk334u)
+[ADSO Files DRIVE](https://tinyurl.com/wnkk334u)
 
 [VERCEL URL](https://adso3314566-five.vercel.app/)
