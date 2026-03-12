@@ -9,26 +9,30 @@ background-size: cover;
             color: #ffffff;
             text-align: center;
             display: flex;
-            justify-content: center;
+            justify-content:center;
             align-items: center;
+            
             a.btn-home {
-                border: 2px solid rgb(255, 255, 255);
-                border-radius: 50%;
-                position: fixed;
-                display: flex;
-                width: 32px;
-                height: 32px;
-                opacity: .6;
-                padding: 0.4rem;
-                inset: 0.5rem;
-                transition: all 0.2s ease-in;
-                &:hover {
-                    transform: scale(1.1);
-                    opacity: 1;
+    border: 2px solid rgb(255, 253, 253);
+    border-radius: 50%;
+    position: fixed;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    background-color: #00BC0D;
+
+    padding: 0.4rem;
+    inset: 0.5rem;
+    transition: all 0.2s ease-in;
+}
+
+a.btn-home:hover {
+    transform: scale(1.1);
+    opacity: 1;
                 }
             }
             section{
-                background-color: rgba(0, 0, 0, 0.329);
+                background-color: rgba(0, 0, 0, 0.342);
                 border-radius: 0.4rem;
                 padding: 0.4rem;
                 text-align: left;
@@ -48,7 +52,7 @@ background-size: cover;
                 margin: 0.4rem 0;
             }
             xmp {
-                background-color: rgba(35, 48, 38, 0.836);
+                background-color: rgba(35, 48, 38, 0.89);
                 border-radius: 0.4rem;
                 color: #03fd14;
                 margin: 1;
@@ -56,4 +60,4 @@ background-size: cover;
                 padding: 0 0.6rem 0.6rem;
             }
         }
-    }
+    
