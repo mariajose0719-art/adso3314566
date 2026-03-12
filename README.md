@@ -15,7 +15,7 @@
 |03  | Css         |Look & Fell - Cascading Style Sheets  |
 |04  | Javasacript |Behavior - Programing Languege        |
 
-![MAJO](https://adso3314566-five.vercel.app/imagesver.jpg)
+![MAJO](https://adso3314566-five.vercel.app/imgs/clawdin.jpg)
 
 [ADSO Files DRIVE](https://tinyurl.com/wnkk334u)
 
