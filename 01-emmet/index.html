@@ -165,6 +165,47 @@ aspernatur,
 atque odio est accusamus repudiandae nostrum.
 </xmp>
         </section>
+        <section>
+            <h2> Challenge</h2>
+            <h4>Result</h4>
+<xmp>
+header#header
+>
+nav.navbar.navbar-inverse
+>
+div.container
+>
+(
+    div.navbar-header
+    >
+    (
+        button.navbar-toggle
+        >
+        span.sr-only{Toggle navigation}
+        +
+        span.icon-bar*3
+    )
+    ^
+    a.navbar-brand[href=index.php]
+    >
+    img[src=imgs/logo.png]
+)
++
+(
+    div.collapse
+    >
+    ul.nav.navbar-nav
+    >
+    (li>a.link[href=index.html]{Inicio})
+    +
+    (li.active.link>a[href=login.html]{Ingresar})
+    +
+    (li>a.link[href=registro.html]{Registrarse})
+    +
+    (li>a.link[href=contacto.html]{Contacto})
+)
+</xmp>
+        </section>
         <h4>Work Flow - Markup & Styling</h4>
     </main>
 </body>
