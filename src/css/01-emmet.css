@@ -11,6 +11,13 @@ background-size: cover;
             display: flex;
             justify-content:center;
             align-items: center;
+
+                            img {
+                    display: flex;
+                    margin: 3rem auto;
+                    object-fit: cover;
+                    width: 240px;
+                }
             
             a.btn-home {
     border: 2px solid rgb(255, 253, 253);
@@ -20,6 +27,7 @@ background-size: cover;
     width: 32px;
     height: 32px;
     background-color: #00BC0D;
+    
 
     padding: 0.4rem;
     inset: 0.5rem;
