@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla Lenguajes</title>
+    <link rel="stylesheet" href="../src/css/02-html.css">
+</head>
+<main>
+        <header>
+            <h1>09-tables</h1>
+            <h2>Creates tables for data display.</h2>
+        </header>
+        <section>
+    <style>
+        body{
+            background-color: #1e1e1e;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn-home{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        table{
+            width: 60%;
+            margin: 80px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th{
+            background-color: #E44D26;
+            padding: 12px;
+        }
+
+        td{
+            padding: 10px;
+        }
+
+        tr:nth-child(even){
+            background-color: #2a2a2a93;
+        }
+
+        tr:nth-child(odd){
+            background-color: #3a3a3a8f;
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="../02-html/index.html" class="btn-home">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256">
+        <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+    </svg>
+</a>
+
+<h1 style="text-align:center;">Lenguajes de Programación</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Lenguaje</th>
+            <th>Año de creación</th>
+            <th>Creador</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Python</td>
+            <td>1991</td>
+            <td>Guido van Rossum</td>
+        </tr>
+        <tr>
+            <td>Java</td>
+            <td>1995</td>
+            <td>James Gosling</td>
+        </tr>
+        <tr>
+            <td>C++</td>
+            <td>1985</td>
+            <td>Bjarne Stroustrup</td>
+        </tr>
+        <tr>
+            <td>JavaScript</td>
+            <td>1995</td>
+            <td>Brendan Eich</td>
+        </tr>
+        <tr>
+            <td>Ruby</td>
+            <td>1995</td>
+            <td>Yukihiro Matsumoto</td>
+        </tr>
+    </tbody>
+</table>
+            </section>
+    </main>
+</body>
+</html>

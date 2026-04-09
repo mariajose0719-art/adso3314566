@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge</title>
+    <link rel="stylesheet" href="../src/css/02-html.css">
+</head>
+<main>
+        <header>
+            <h1>10-challenge-tables</h1>
+            <h2>Practices table creation and structure.</h2>
+        </header>
+        <section>
+            <style>
+        body {
+            background-color: #1e1e1e;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+        h2 {
+            color: #E44D26;
+            border-bottom: 1px solid #E44D26;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        form {
+            background-color: #ffffff3f;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+        }
+        fieldset {
+            border: 1px solid #E44D26;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        legend {
+            color: #E44D26;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            margin: 10px 0;
+        }
+        input, select, textarea {
+            background-color: #1e1e1e18;
+            color: white;
+            border: 1px solid #ffffff;
+            padding: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+            width: 250px;
+        }
+        button, input[type="submit"], input[type="reset"] {
+            background-color: #E44D26;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: auto;
+        }
+        button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #b33b1a;
+        }
+        .grupo {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #E44D26;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #02020246;
+        }
+    </style>
+</head>
+<body>
+         <a href="../02-html/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+
+<h1>Referencia: Formularios HTML</h1>
+
+<form action="#" method="post" enctype="multipart/form-data" autocomplete="on" novalidate>
+    
+    <fieldset>
+        <legend>Datos Personales</legend>
+        
+        <!-- label con for -->
+        <div class="grupo">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" size="30" maxlength="50" placeholder="Escribe tu nombre" required autofocus>
+        </div>
+        
+        <div class="grupo">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+        </div>
+        
+        <div class="grupo">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" min="18" max="99" step="1" value="25">
+        </div>
+        
+        <div class="grupo">
+            <label for="color">Color favorito:</label>
+            <input type="color" id="color" name="color" value="#E44D26">
+        </div>
+        
+        <div class="grupo">
+            <label for="fecha">Fecha nacimiento:</label>
+            <input type="date" id="fecha" name="fecha">
+        </div>
+        
+        <div class="grupo">
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora">
+        </div>
+        
+        <div class="grupo">
+            <label for="semana">Semana:</label>
+            <input type="week" id="semana" name="semana">
+        </div>
+        
+        <div class="grupo">
+            <label for="mes">Mes:</label>
+            <input type="month" id="mes" name="mes">
+        </div>
+        
+        <div class="grupo">
+            <label for="rango">Nivel (0-10):</label>
+            <input type="range" id="rango" name="rango" min="0" max="10" step="1">
+        </div>
+        
+    <fieldset>
+        <legend>Opciones</legend>
+        
+        <div class="grupo">
+            <label>Contraseña:</label>
+            <input type="password" name="password" size="20" maxlength="20" placeholder="*****">
+        </div>
+        
+        <div class="grupo">
+            <label>Checkbox:</label>
+            <input type="checkbox" name="suscripcion" value="newsletter" checked> (Suscribirme)
+        </div>
+        
+        <div class="grupo">
+<table>
+  <tr>
+    <td><label>Genero:</label></td>
+    <td>
+      <input type="radio" name="genero" value="masculino"> Masculino
+      <input type="radio" name="genero" value="femenino"> Femenino
+      <input type="radio" name="genero" value="otro"> Otro
+    </td>
+  </tr>
+</table>
+        </div>
+        
+        <div class="grupo">
+            <label>Archivo:</label>
+            <input type="file" name="archivo" accept="image/png, image/jpeg">
+        </div>
+        
+        
+        <div class="grupo">
+            <label>Botón normal:</label>
+            <input type="button" value="Botón normal" onclick="alert('Hiciste clic')">
+        </div>
+        
+        <div class="grupo">
+            <label>Imagen como botón:</label>
+            <input type="image" src="https://via.placeholder.com/100x30?text=Enviar" alt="Enviar" style="width:100px;">
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Área de texto</legend>
+        <div class="grupo">
+            <label for="comentarios">Comentarios:</label>
+            <textarea id="comentarios" name="comentarios" rows="5" cols="40" placeholder="Escribe aquí tu comentario..." required></textarea>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Lista desplegable </legend>
+        <div class="grupo">
+            <label for="pais">País:</label>
+            <select id="pais" name="pais" size="1" required>
+                <option value="" disabled selected>Selecciona un país</option>
+                <option value="mx">México</option>
+                <option value="es" selected>España</option>
+                <option value="ar">Argentina</option>
+                <option value="co">Colombia</option>
+            </select>
+        </div>
+        
+        <div class="grupo">
+            <label for="multiples">Múltiple (Hobbie Favorito):</label>
+            <select id="multiples" name="intereses" size="3" multiple>
+                <option value="deporte">Deporte</option>
+                <option value="musica" selected>Música</option>
+                <option value="lectura">Lectura</option>
+                <option value="cine" selected>Cine</option>
+            </select>
+        </div>
+        
+        <div class="grupo">
+            <label>Select disabled:</label>
+            <select name="deshabilitado" disabled>
+                <option>Opción deshabilitada</option>
+            </select>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Acciones del formulario</legend>
+        <div class="grupo">
+            <input type="submit" value="Enviar formulario">
+            <input type="reset" value="Resetear formulario">
+        </div>
+       
+    </fieldset>
+    
+</form>
+</section>
+    </main>
+</body>
+</html>

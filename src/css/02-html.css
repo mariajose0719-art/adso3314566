@@ -58,7 +58,7 @@ a.btn-home:hover {
                     }
                 }
                 section {
-                    background-color: #ebae9f;
+                    background-color: #da8069c0;
                     border-radius: 0.2rem;
                     min-width: 380px;
                     margin-top: 2rem;
@@ -112,5 +112,5 @@ a.btn-home:hover {
                     transform: scale(1.01) translateX(12px);
                 }
             }
-            }
-            
+        }
+    }
