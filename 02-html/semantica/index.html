@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Estructura Semántica HTML5 | Demostración visual</title>
+    <style>
+        /* ========== RESET BÁSICO Y ESTILOS GLOBALES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #eef2f5;
+            padding: 2rem 1.5rem;
+            line-height: 1.5;
+            color: #1a2c3e;
+        }
+
+        /* Contenedor principal que simula el "contenedor" de la imagen referencia */
+        .main-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        /* ===== ETIQUETAS SEMÁNTICAS CON ESTILO VISUAL ===== */
+        /* Cada elemento semántico tendrá un fondo sutil, borde y una etiqueta flotante 
+           que indica su nombre (header, nav, article, section, aside, footer) 
+           para que se comprenda fácilmente la semántica HTML5 */
+
+        /* Estilo común para todos los bloques semánticos: 
+           posición relativa para poder mostrar el badge identificador */
+        header, nav, article, section, aside, footer {
+            position: relative;
+            margin: 0;
+            transition: all 0.2s ease;
+        }
+
+        /* Badge / etiqueta que indica el nombre del elemento semántico */
+        [data-semantic]::before {
+            content: attr(data-semantic);
+            position: absolute;
+            top: 12px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'Fira Code', monospace, 'Segoe UI';
+            padding: 4px 12px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            z-index: 15;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            pointer-events: none;
+            text-transform: lowercase;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Para elementos que pueden tener varios roles, añadimos un pequeño ajuste */
+        /* HEADER - zona superior */
+        header {
+            background: linear-gradient(135deg, #1e3c4c 0%, #2b5c6f 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem 2rem;
+            border-bottom: 3px solid #ffb74d;
+        }
+
+        /* NAV - barra de navegación */
+        nav {
+            background: #2c3e2f;
+            background: linear-gradient(98deg, #2a4b3c, #1f3e32);
+            padding: 0.9rem 2rem;
+            border-bottom: 1px solid #5a8f72;
+        }
+
+        /* CONTENEDOR FLEX para ARTICLE + ASIDE (zona de contenido principal y barra lateral) */
+        .content-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            background: #f9fafc;
+        }
+
+        /* ARTICLE - contenido principal */
+        article {
+            flex: 2.5;
+            min-width: 240px;
+            background: #ffffff;
+            padding: 2rem 2rem 2rem 2rem;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        /* SECTION - dentro del article, secciones internas con estilo diferenciado */
+        section {
+            background: #fef9e6;
+            margin-top: 1.8rem;
+            margin-bottom: 1.8rem;
+            padding: 1.5rem 1.5rem 1.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border-left: 6px solid #f4b942;
+        }
+
+        /* primer section sin margen superior extra */
+        article section:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        /* ASIDE - contenido lateral complementario */
+        aside {
+            flex: 1.2;
+            background: #f1f5f9;
+            padding: 2rem 1.8rem;
+            border-left: 1px solid #dce3ec;
+        }
+
+        /* FOOTER - pie de página */
+        footer {
+            background: #1e2a32;
+            color: #e0e7ef;
+            padding: 1.8rem 2rem;
+            text-align: center;
+            border-top: 2px solid #ffb347;
+            font-size: 0.9rem;
+        }
+
+        /* estilos internos para textos, listas, títulos */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+
+        header p {
+            opacity: 0.85;
+            font-size: 1rem;
+            margin-top: 6px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            list-style: none;
+            justify-content: flex-start;
+        }
+
+        nav a {
+            color: #f9f3df;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom-color: #ffcd7e;
+            color: #fff2cf;
+        }
+
+        article h2 {
+            font-size: 1.9rem;
+            margin-bottom: 0.75rem;
+            color: #1f4e5c;
+            border-left: 5px solid #f6a821;
+            padding-left: 1rem;
+        }
+
+        article h3 {
+            font-size: 1.4rem;
+            margin: 1rem 0 0.6rem 0;
+            color: #2c6e5c;
+        }
+
+        article p {
+            margin-bottom: 1rem;
+            color: #2c3f44;
+        }
+
+        .code-sample {
+            background: #1e2a2f;
+            color: #d6deeb;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        aside h3 {
+            color: #1f4e5c;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px dashed #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        aside ul {
+            list-style-type: square;
+            padding-left: 1.4rem;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        aside li {
+            margin: 10px 0;
+            color: #2d3e4b;
+        }
+
+        .badge-extra {
+            background: #e9ecef;
+            border-radius: 20px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #2c3e50;
+            display: inline-block;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* adaptación responsive */
+        @media (max-width: 780px) {
+            body {
+                padding: 1rem;
+            }
+            .content-row {
+                flex-direction: column;
+            }
+            article {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            aside {
+                border-left: none;
+                border-top: 1px solid #dce3ec;
+            }
+            nav ul {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            header h1 {
+                font-size: 1.7rem;
+            }
+            [data-semantic]::before {
+                font-size: 0.6rem;
+                top: 8px;
+                left: 12px;
+            }
+        }
+
+        /* pequeño realce para mostrar secciones internas */
+        section .inner-text {
+            margin-top: 0.5rem;
+        }
+
+        /* decoración sutil para que se vea la jerarquía semántica */
+        .highlight-semantic {
+            border: 1px dashed rgba(255, 193, 7, 0.5);
+            background: rgba(255, 241, 184, 0.2);
+        }
+
+        /* muestra que el main (implícito) también es semántico aunque no tenga badge, pero lo representamos con estilo */
+        /* No olvidar que el esquema incluye: header, nav, article, section, aside, footer, y también podemos mostrar main si se desea */
+        /* usamos main internamente para agrupar contenido principal (article + aside) y dar robustez semántica */
+        .main-semantic {
+            display: contents; /* para no romper diseño, solo semántica pero el flujo lo maneja content-row */
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <!-- 
+        ESTRUCTURA SEMÁNTICA SEGÚN HTML5 + REFERENCIA VISUAL 
+        Basado en la imagen proporcionada:
+        1. contenedor global (div con clase main-container) -> NO semántico, pero envuelve para fidelidad visual 
+        2. elementos semánticos: <header>, <nav>, <main> (implícito con article+aside), <article>, <section>, <aside>, <footer>
+        3. También se añade <section> dentro del artículo para mostrar subsecciones semánticas.
+        4. Atributo personalizado data-semantic para mostrar badges de cada elemento, sin interferir con la semántica real.
+    -->
+
+    <!-- CABECERA: representa el encabezado del sitio o documento -->
+    <header data-semantic="&lt;header&gt;">
+        <h1>🌐 Arquitectura Semántica HTML5</h1>
+        <p>Estructura moderna con <strong>header, nav, article, section, aside y footer</strong> — Basado en estándares W3C</p>
+        <div class="badge-extra" style="margin-top: 12px;">📐 semántica clara + estilo visual demostrativo</div>
+    </header>
+
+    <!-- BARRA DE NAVEGACIÓN: etiqueta semántica <nav> -->
+    <nav data-semantic="&lt;nav&gt;">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Artículos</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto semántico</a></li>
+            <li><a href="#">Referencias</a></li>
+        </ul>
+    </nav>
+
+    <!-- ZONA DE CONTENIDO PRINCIPAL (uso de contenedor flex para article + aside) 
+         pero manteniendo la semántica correcta: 
+         el contenido principal debería estar dentro de <main>. Usamos <main> explícitamente 
+         para cumplir con la especificación HTML5 (contenido único y principal). -->
+    <main style="display: block; background: inherit;">
+        <div class="content-row">
+            <!-- ARTICLE: contenido independiente y autocontenido -->
+            <article data-semantic="&lt;article&gt;">
+                <h2>📖 La importancia de las etiquetas semánticas</h2>
+                <p>HTML5 introduce elementos como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code> y <code>&lt;footer&gt;</code> para describir el significado del contenido, mejorando la accesibilidad, SEO y mantenibilidad del código.</p>
+                
+                <!-- SECTION 1: agrupación temática dentro del artículo -->
+                <section data-semantic="&lt;section&gt;">
+                    <h3>📌 ¿Qué es una sección?</h3>
+                    <p>El elemento <code>&lt;section&gt;</code> representa una agrupación genérica de contenido temáticamente relacionado. En este caso, cada sección dentro del artículo refuerza la estructura lógica. Ideal para capítulos o partes diferenciadas.</p>
+                    <div class="code-sample">
+                        &lt;section&gt;<br>
+                        &nbsp;&nbsp;&lt;h2&gt;Beneficios&lt;/h2&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;Mejor accesibilidad...&lt;/p&gt;<br>
+                        &lt;/section&gt;
+                    </div>
+                </section>
+
+                <!-- SECTION 2: otra subsección semántica -->
+                <section data-semantic="&lt;section&gt;">
+                    <h3>🎯 Ventajas para motores de búsqueda</h3>
+                    <p>Google y otros buscadores interpretan mejor la jerarquía de contenidos cuando se usan etiquetas semánticas. <strong>article</strong> y <strong>section</strong> ayudan a estructurar el documento de forma lógica, mejorando el posicionamiento.</p>
+                    <p>Además, lectores de pantalla permiten a usuarios con discapacidad visual navegar por los roles de landmark (banner, navigation, main, complementary, contentinfo).</p>
+                </section>
+
+                <!-- SECTION 3: ejemplo de uso de article anidado? pero mantenemos solo sections para demostración -->
+                <section data-semantic="&lt;section&gt;">
+                    <h3>🧩 Diferencias entre article y section</h3>
+                    <p><code>&lt;article&gt;</code> es para contenido independiente y distribuible (ej: post de blog, noticia). <code>&lt;section&gt;</code> agrupa contenido relacionado dentro de un artículo o en cualquier parte. Ambos pueden anidarse.</p>
+                    <p>✅ En esta página, <strong>&lt;article&gt;</strong> contiene múltiples <strong>&lt;section&gt;</strong>, demostrando la práctica recomendada.</p>
+                </section>
+
+                <div style="margin-top: 1rem; font-style: italic; border-top: 1px solid #eee; padding-top: 1rem;">
+                    ⚡ <strong>Nota visual:</strong> Cada bloque semántico muestra una etiqueta flotante con su nombre (header, nav, article, section, aside, footer).
+                </div>
+            </article>
+
+            <!-- ASIDE: contenido complementario, relacionado indirectamente con el artículo principal -->
+            <aside data-semantic="&lt;aside&gt;">
+                <h3>📚 Referencia semántica</h3>
+                <ul>
+                    <li><strong>&lt;header&gt;</strong> → Introducción o navegación.</li>
+                    <li><strong>&lt;nav&gt;</strong> → Enlaces de navegación principal.</li>
+                    <li><strong>&lt;article&gt;</strong> → Contenido independiente.</li>
+                    <li><strong>&lt;section&gt;</strong> → Bloques temáticos genéricos.</li>
+                    <li><strong>&lt;aside&gt;</strong> → Contenido lateral relacionado.</li>
+                    <li><strong>&lt;footer&gt;</strong> → Metadatos, información de cierre.</li>
+                </ul>
+                <hr style="margin: 1rem 0; border-color: #cbd5e1;">
+                <h3>🔍 Estructura del documento</h3>
+                <p style="font-size: 0.9rem;">Basado en la imagen de referencia: contenedor global → encabezado, contenido (article + aside), pie. Implementado fielmente con semántica HTML5.</p>
+                <div class="code-sample" style="background:#e9eef3; color:#1e2f3a;">
+                    &lt;body&gt;<br>
+                    &nbsp;&nbsp;&lt;header&gt;...&lt;/header&gt;<br>
+                    &nbsp;&nbsp;&lt;nav&gt;...&lt;/nav&gt;<br>
+                    &nbsp;&nbsp;&lt;main&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;article&gt;+&lt;section&gt;&lt;/section&gt;&lt;/article&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;aside&gt;...&lt;/aside&gt;<br>
+                    &nbsp;&nbsp;&lt;/main&gt;<br>
+                    &nbsp;&nbsp;&lt;footer&gt;...&lt;/footer&gt;<br>
+                    &lt;/body&gt;
+                </div>
+                <p style="margin-top: 12px;">✅ HTML5 válido, accesible y responsive.</p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA: footer semántico -->
+    <footer data-semantic="&lt;footer&gt;">
+        <p>📄 Demostración de estructura semántica HTML5 — basada en las imágenes: contenedor → encabezado / contenido / pie + semántica header, nav, article, section, aside, footer.</p>
+        <p style="font-size: 0.8rem; margin-top: 8px;">© 2025 — Referencia: Estándar WHATWG HTML Living Standard | Diseño visual con badges identificadores</p>
+    </footer>
+</div>
+
+<!-- 
+    Breve explicación adicional: 
+    - Se respeta la semántica de las etiquetas según la imagen 2 (header, nav, article, section, aside, footer)
+    - Además se usa <main> para englobar el contenido principal (buena práctica)
+    - Cada elemento tiene atributo data-semantic personalizado que muestra un badge con la etiqueta real,
+      facilitando la identificación de cada parte.
+    - Se añadió flexbox para simular la distribución típica de article + aside (como contenido principal y lateral)
+    - El diseño es completamente responsivo.
+    - En la imagen primera se ve "encabezado, contenido, pie", y aquí se representa: header (encabezado),
+      nav como parte superior secundaria, luego main con article+aside (contenido), y footer (pie).
+    - La semántica se demuestra visual y conceptualmente.
+-->
+
+</body>
+</html>
