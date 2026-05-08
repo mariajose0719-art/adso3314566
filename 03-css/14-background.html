@@ -6,7 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>14-background</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        section.backgrounds {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
 
+        /* BACKGROUND COLOR */
+        div.bg-color {
+            background-color: rgb(165, 91, 224);
+
+            width: 320px;
+            height: 120px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* BACKGROUND IMAGE */
+        div.bg-image {
+
+            background-image: url(../chepe.jpg);
+
+            width: 320px;
+            height: 200px;
+
+            border: 4px solid white;
+        }
+
+        /* BACKGROUND REPEAT */
+        div.bg-repeat {
+
+            background-color: white;
+
+            background-image: url(../chepe.jpg);
+            background-repeat: repeat;
+
+            background-size: 60px;
+
+            width: 320px;
+            height: 180px;
+
+            border: 4px solid white;
+        }
+
+        /* BACKGROUND POSITION */
+        div.bg-position {
+
+            background-image: url(../chepe.jpg);
+            background-repeat: no-repeat;
+
+            background-position: center;
+
+            background-size: 120px;
+
+            width: 320px;
+            height: 200px;
+
+            background-color: rgb(176, 69, 202);
+
+            border: 4px solid white;
+        }
+
+        /* BACKGROUND SIZE */
+        div.bg-size {
+
+            background-image: url(../chepe.jpg);
+            background-repeat: no-repeat;
+
+            background-size: cover;
+
+            background-position: center;
+
+            width: 320px;
+            height: 220px;
+
+            border: 4px solid white;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,17 +101,48 @@
             </path>
         </svg> </a>
     <main>
-                <header>
+        <header>
             <h1>14 - Background</h1>
-            <section>
-            <ul>
-                <li>background-color</li>
-                <li>background-image</li>
-                <li>background-repeat</li>
-                <li>background-position</li>
-                <li>background-size</li>
-            </ul>
-            </section>
+                <ul>
+                    <li>background-color</li>
+                    <li>background-image</li>
+                    <li>background-repeat</li>
+                    <li>background-position</li>
+                    <li>background-size</li>
+                </ul>
+                <section class="backgrounds">
+
+                    <!-- BACKGROUND COLOR -->
+                    <div class="bg-color">
+                        <p>Background-color</p>
+                    </div>
+                </section>
+
+                <section class="backgrounds">
+                    <!-- BACKGROUND IMAGE -->
+                    <h3>Background-image</h3>
+                    <div class="bg-image">
+                    </div>
+                </section>
+
+                <section class="backgrounds">
+                    <!-- BACKGROUND REPEAT -->
+                    <h3>Background-repeat</h3>
+                    <div class="bg-repeat"></div>
+                </section>
+
+                <section class="backgrounds">
+                    <!-- BACKGROUND POSITION -->
+                    <h3>Background-position</h3>
+                    <div class="bg-position"></div>
+                </section>
+
+                <section class="backgrounds">
+                    <!-- BACKGROUND SIZE -->
+                    <h3>Background-size</h3>
+                    <div class="bg-size"></div>
+                </section>
+
         </header>
     </main>
 </body>

@@ -6,6 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>15-position</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+        <style>
+
+        section.positions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        /* CONTENEDOR GENERAL */
+        div.container {
+            position: relative;
+
+            width: 350px;
+            height: 180px;
+
+            border: 4px solid white;
+            background-color: rgba(255,255,255,0.1);
+
+            padding: 1rem;
+        }
+
+        /* CAJAS */
+        div.box {
+            width: 100px;
+            height: 100px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            font-weight: bold;
+        }
+
+        /* STATIC */
+        div.static {
+            background-color: rgb(179, 80, 224);
+            position: static;
+        }
+
+        /* RELATIVE */
+        div.relative {
+            background-color: royalblue;
+
+            position: relative;
+
+            top: 20px;
+            left: 30px;
+        }
+
+        /* ABSOLUTE */
+        div.absolute {
+            background-color: rgb(119, 0, 255);
+
+            position: absolute;
+
+            top: 20px;
+            right: 20px;
+        }
+
+        /* FIXED */
+        div.fixed {
+            background-color: rgb(49, 16, 87);
+
+            position: fixed;
+
+            bottom: 20px;
+            right: 20px;
+
+            width: 90px;
+            height: 90px;
+
+            border-radius: 50%;
+        }
+
+        /* STICKY */
+        div.sticky {
+            background-color: purple;
+
+            position: sticky;
+
+            top: 10px;
+        }
+
+        /* ESPACIO PARA SCROLL */
+        div.space {
+            height: 600px;
+        }
+
+    </style>
 
 </head>
 
@@ -19,7 +111,6 @@
     <main>
                 <header>
             <h1>15 - Position</h1>
-            <section>
             <ul>
                 <li>Normal/Static</li>
                 <li>Relative</li>
@@ -27,8 +118,78 @@
                 <li>Fixed</li>
                 <li>Sticky/li>
             </ul>
-            </section>
         </header>
+         <section>
+
+            <h3>Normal / Static:</h3>
+
+            <section class="positions">
+
+                <div class="container">
+                    <div class="box static">
+                        STATIC
+                    </div>
+                </div>
+
+            </section>
+
+            <h3>Relative:</h3>
+
+            <section class="positions">
+
+                <div class="container">
+                    <div class="box relative">
+                        RELATIVE
+                    </div>
+                </div>
+
+            </section>
+
+            <h3>Absolute:</h3>
+
+            <section class="positions">
+
+                <div class="container">
+
+                    <div class="box static">
+                        STATIC
+                    </div>
+
+                    <div class="box absolute">
+                        ABSOLUTE
+                    </div>
+
+                </div>
+
+            </section>
+
+            <h3>Sticky:</h3>
+
+            <section class="positions">
+
+                <div class="container">
+
+                    <div class="box sticky">
+                        STICKY
+                    </div>
+
+                </div>
+
+            </section>
+
+            <h3>Fixed:</h3>
+
+            <section class="positions">
+
+                <div class="container">
+
+                    <div class="box fixed">
+                        FIXED
+                    </div>
+
+                </div>
+
+            </section>
     </main>
 </body>
 
