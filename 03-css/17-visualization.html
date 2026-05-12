@@ -6,7 +6,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>17-visualization</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+  <style>
 
+        section.visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+
+            margin-top: 3rem;
+        }
+
+        /* CAJAS GENERALES */
+        div.box {
+            width: 150px;
+            height: 100px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            font-weight: bold;
+        }
+
+        /* ========================= */
+        /* DISPLAY */
+        /* ========================= */
+
+        div.display-container {
+            border: 4px solid white;
+            padding: 1rem;
+            width: 700px;
+        }
+
+        .block {
+            display: block;
+            background-color: crimson;
+            margin-bottom: 1rem;
+        }
+
+        .inline {
+            display: inline;
+            background-color: royalblue;
+            padding: 1rem;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* ========================= */
+        /* VISIBILITY */
+        /* ========================= */
+
+        div.visibility-container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .visible {
+            background-color: green;
+            visibility: visible;
+        }
+
+        .hidden {
+            background-color: purple;
+            visibility: hidden;
+        }
+
+        /* ========================= */
+        /* OVERFLOW */
+        /* ========================= */
+
+        div.overflow-box {
+            width: 300px;
+            height: 120px;
+
+            border: 4px solid white;
+            padding: 1rem;
+
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .overflow-visible {
+            overflow: visible;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .overflow-scroll {
+            overflow: scroll;
+        }
+
+        .overflow-auto {
+            overflow: auto;
+        }
+
+        /* ========================= */
+        /* Z-INDEX */
+        /* ========================= */
+
+        div.zindex-container {
+            position: relative;
+
+            width: 400px;
+            height: 250px;
+        }
+
+        .z1,
+        .z2,
+        .z3 {
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .z1 {
+            background-color: rgb(107, 20, 220);
+
+            top: 0;
+            left: 0;
+
+            z-index: 1;
+        }
+
+        .z2 {
+            background-color: royalblue;
+
+            top: 40px;
+            left: 40px;
+
+            z-index: 2;
+        }
+
+        .z3 {
+            background-color: green;
+
+            top: 80px;
+            left: 80px;
+
+            z-index: 3;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -28,6 +195,122 @@
             </ul>
             </section>
         </header>
+
+            <section>
+    <h3>Display:</h3>
+
+    <section class="visualization">
+        <div class="display-container">
+
+            <div class="box block">
+                BLOCK
+            </div>
+
+            <span class="inline">
+                INLINE
+            </span>
+
+            <div class="box none">
+                NONE
+            </div>
+
+            <div class="flex">
+                <div class="box" style="background-color: #9b59b6;">
+                    FLEX 1
+                </div>
+
+                <div class="box" style="background-color: #8e44ad;">
+                    FLEX 2
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="box" style="background-color: #9b59b6;">
+                    GRID 1
+                </div>
+
+                <div class="box" style="background-color: #8e44ad;">
+                    GRID 2
+                </div>
+            </div>
+
+        </div>
+    </section>
+</section>
+
+
+<!-- VISIBILITY -->
+<section>
+    <h3>Visibility:</h3>
+
+    <section class="visualization">
+        <div class="visibility-container">
+
+            <div class="box visible" style="background-color: #7d3c98;">
+                VISIBLE
+            </div>
+
+            <div class="box hidden" style="background-color: #bb8fce;">
+                HIDDEN
+            </div>
+
+        </div>
+    </section>
+</section>
+
+
+<!-- OVERFLOW -->
+<section>
+    <h3>Overflow:</h3>
+
+    <section class="visualization">
+
+        <div class="overflow-box overflow-visible" style="background-color: #763791;">
+            <strong>VISIBLE:</strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </div>
+
+        <div class="overflow-box overflow-hidden" style="background-color: #8c35b1;">
+            <strong>HIDDEN:</strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </div>
+
+        <div class="overflow-box overflow-scroll" style="background-color: #b169ce;">
+            <strong>SCROLL:</strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </div>
+
+        <div class="overflow-box overflow-auto" style="background-color: #af7ac5;">
+            <strong>AUTO:</strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </div>
+
+    </section>
+</section>
+
+
+<!-- Z-INDEX -->
+<section>
+    <h3>Z-Index:</h3>
+
+    <section class="visualization">
+        <div class="zindex-container">
+
+            <div class="z1" style="background-color: #e8daef;">
+                z-index: 1
+            </div>
+
+            <div class="z2" style="background-color: #a569bd;">
+                z-index: 2
+            </div>
+
+            <div class="z3" style="background-color: #6c3483;">
+                z-index: 3
+            </div>
+
+        </div>
+    </section>
+
     </main>
 </body>
 

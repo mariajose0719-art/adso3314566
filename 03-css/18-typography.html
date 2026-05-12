@@ -6,6 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>18-typography</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+
+        section.typography {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            margin-top: 3rem;
+        }
+
+        /* CONTENEDORES */
+        div.text-box {
+            width: 700px;
+
+            border: 4px solid white;
+            padding: 2rem;
+
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* ===================== */
+        /* COLOR */
+        /* ===================== */
+
+        p.color-text {
+            color: rgb(253, 0, 232);
+        }
+
+        /* ===================== */
+        /* FONT FAMILY */
+        /* ===================== */
+
+        p.family-arial {
+            font-family: Arial, sans-serif;
+        }
+
+        p.family-courier {
+            font-family: "Courier New", monospace;
+        }
+
+        p.family-georgia {
+            font-family: Georgia, serif;
+        }
+
+        /* ===================== */
+        /* FONT SIZE */
+        /* ===================== */
+
+        p.size-small {
+            font-size: 0.8rem;
+        }
+
+        p.size-medium {
+            font-size: 1.2rem;
+        }
+
+        p.size-large {
+            font-size: 2rem;
+        }
+
+        /* ===================== */
+        /* FONT WEIGHT */
+        /* ===================== */
+
+        p.weight-light {
+            font-weight: 300;
+        }
+
+        p.weight-normal {
+            font-weight: 500;
+        }
+
+        p.weight-bold {
+            font-weight: 900;
+        }
+
+    </style>
 
 </head>
 
@@ -28,6 +106,92 @@
             </ul>
             </section>
         </header>
+         <section>
+
+            <!-- COLOR -->
+            <h3>Color:</h3>
+
+            <section class="typography">
+
+                <div class="text-box">
+
+                    <p class="color-text">
+                        This text uses the color property.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FONT FAMILY -->
+            <h3>Font Family:</h3>
+
+            <section class="typography">
+
+                <div class="text-box">
+
+                    <p class="family-arial">
+                        Arial Font Family
+                    </p>
+
+                    <p class="family-courier">
+                        Courier New Font Family
+                    </p>
+
+                    <p class="family-georgia">
+                        Georgia Font Family
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FONT SIZE -->
+            <h3>Font Size:</h3>
+
+            <section class="typography">
+
+                <div class="text-box">
+
+                    <p class="size-small">
+                        Small Text
+                    </p>
+
+                    <p class="size-medium">
+                        Medium Text
+                    </p>
+
+                    <p class="size-large">
+                        Large Text
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FONT WEIGHT -->
+            <h3>Font Weight:</h3>
+
+            <section class="typography">
+
+                <div class="text-box">
+
+                    <p class="weight-light">
+                        Light Weight
+                    </p>
+
+                    <p class="weight-normal">
+                        Normal Weight
+                    </p>
+
+                    <p class="weight-bold">
+                        Bold Weight
+                    </p>
+
+                </div>
+
+            </section>
+
     </main>
 </body>
 
