@@ -6,6 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20-pseudoclasses</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+<style>
+
+    section.pseudo-examples {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    /* CONTENEDOR */
+    div.example-box {
+        width: 700px;
+        border: 4px solid #9b59b6;  /* Morado */
+        padding: 2rem;
+        background-color: rgba(155, 89, 182, 0.1);  /* Morado claro transparente */
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* ===================== */
+    /* HOVER */
+    /* ===================== */
+    button.hover-btn {
+        background-color: #8e44ad;  /* Morado oscuro */
+        color: white;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button.hover-btn:hover {
+        background-color: #6c3483;  /* Morado más oscuro al hover */
+        transform: scale(1.05);
+    }
+
+    /* ===================== */
+    /* ACTIVE */
+    /* ===================== */
+    button.active-btn {
+        background-color: #9b59b6;  /* Morado medio */
+        color: white;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+    }
+
+    button.active-btn:active {
+        background-color: #d2b4de;  /* Morado muy claro al hacer clic */
+    }
+
+    /* ===================== */
+    /* FOCUS */
+    /* ===================== */
+    input.focus-input {
+        padding: 1rem;
+        border: 3px solid #9b59b6;
+        outline: none;
+    }
+
+    input.focus-input:focus {
+        border-color: #d2b4de;
+        background-color: #4a235a;  /* Morado muy oscuro */
+        color: white;
+    }
+
+    /* ===================== */
+    /* FIRST-CHILD - Mantengo colores que combinen */
+    /* ===================== */
+    ul li:first-child {
+        color: #d7bde2;  /* Morado claro */
+        font-weight: bold;
+    }
+
+    /* ===================== */
+    /* LAST-CHILD */
+    /* ===================== */
+    ul li:last-child {
+        color: #bb8fce;  /* Morado medio */
+        font-style: italic;
+    }
+
+    /* ===================== */
+    /* NTH-CHILD */
+    /* ===================== */
+    ol li:nth-child(2) {
+        color: #af7ac5;  /* Morado intermedio */
+        font-size: 1.2rem;
+    }
+
+    /* ===================== */
+    /* LINK / VISITED */
+    /* ===================== */
+    a.demo-link:link {
+        color: #d7bde2;  /* Morado claro */
+    }
+
+    a.demo-link:visited {
+        color: #f4ecf7;  /* Morado casi blanco */
+    }
+
+</style>
 
 </head>
 
@@ -22,10 +126,76 @@
             <h2>Is used to define a special state of an element.</h2>
         </header>
         <section>
-            <div class="adso">
-                ADSO 3314566
-            </div>
+
+            <section class="pseudo-examples">
+
+                <div class="example-box">
+
+                    <!-- HOVER -->
+                    <h3>:hover</h3>
+
+                    <button class="hover-btn">
+                        Hover Me
+                    </button>
+
+                    <!-- ACTIVE -->
+                    <h3>:active</h3>
+
+                    <button class="active-btn">
+                        Click Me
+                    </button>
+
+                    <!-- FOCUS -->
+                    <h3>:focus</h3>
+
+                    <input type="text"
+                           class="focus-input"
+                           placeholder="Click here">
+
+                    <!-- FIRST CHILD -->
+                    <h3>:first-child</h3>
+
+                    <ul>
+                        <li>First Item</li>
+                        <li>Second Item</li>
+                        <li>Third Item</li>
+                    </ul>
+
+                    <!-- LAST CHILD -->
+                    <h3>:last-child</h3>
+
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+
+                    <!-- NTH CHILD -->
+                    <h3>:nth-child()</h3>
+
+                    <ol>
+                        <li>Item One</li>
+                        <li>Item Two</li>
+                        <li>Item Three</li>
+                    </ol>
+
+                    <!-- LINK / VISITED -->
+                    <h3>:link / :visited</h3>
+
+                    <a href="https://www.google.com"
+                       target="_blank"
+                       class="demo-link">
+
+                        Visit Google
+
+                    </a>
+
+                </div>
+
+            </section>
+
         </section>
+
     </main>
 </body>
 

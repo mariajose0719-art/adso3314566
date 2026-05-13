@@ -6,6 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>21-lists</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+
+    section.list-examples {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    /* CONTENEDOR */
+    section.list-box {
+        width: 300px;
+        border: 3px solid #9b59b6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        background-color: rgba(155, 89, 182, 0.1);
+    }
+
+    /* Títulos dentro de las cajas */
+    section.list-box h3 {
+        color: #d7bde2;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    /* ===================== */
+    /* LIST STYLE */
+    /* ===================== */
+
+    ul.disc-list {
+        list-style: disc inside;
+    }
+
+    ul.circle-list {
+        list-style: circle outside;
+    }
+
+    ul.square-list {
+        list-style: square inside;
+    }
+
+    ol.decimal-list {
+        list-style: decimal;
+    }
+
+    ol.roman-list {
+        list-style: upper-roman;
+    }
+
+    ol.alpha-list {
+        list-style: lower-alpha;
+    }
+
+    /* LISTA PERSONALIZADA */
+    ul.custom-list {
+        list-style: "🎬 ";
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+        color: white;
+    }
+
+    /* Cambiar color de items según tipo de lista */
+    .disc-list li, .circle-list li, .square-list li {
+        color: #d7bde2;
+    }
+
+    .decimal-list li, .roman-list li, .alpha-list li {
+        color: #bb8fce;
+    }
+
+</style>
 
 </head>
 
@@ -15,17 +89,87 @@
             <path
                 d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
             </path>
-        </svg> </a>
+        </svg>
+    </a>
     <main>
         <header>
             <h1>21 - Lists</h1>
             <h2>Allows you to set all the list style properties at once.</h2>
         </header>
-        <section>
-            <div class="adso">
-                ADSO 3314566
-            </div>
-        </section>
+
+
+
+            <!-- UNORDERED LISTS - COMEDIA -->
+            <section class="list-box">
+                <h3>🎭 Top Películas de Comedia:</h3>
+                <ul class="disc-list">
+                    <li>Superbad (2007)</li>
+                    <li>Mean Girls (2004)</li>
+                    <li>The Hangover (2009)</li>
+                </ul>
+            </section>
+
+            <!-- UNORDERED LISTS - TERROR -->
+            <section class="list-box">
+                <h3>🎃 Top Películas de Terror:</h3>
+                <ul class="circle-list">
+                    <li>The Conjuring (2013)</li>
+                    <li>Hereditary (2018)</li>
+                    <li>Get Out (2017)</li>
+                </ul>
+            </section>
+
+            <!-- UNORDERED LISTS - CIENCIA FICCIÓN -->
+            <section class="list-box">
+                <h3>🚀 Top Películas de Ciencia Ficción:</h3>
+                <ul class="square-list">
+                    <li>Inception (2010)</li>
+                    <li>Interstellar (2014)</li>
+                    <li>The Matrix (1999)</li>
+                </ul>
+            </section>
+
+            <!-- ORDERED LISTS - ACCIÓN -->
+            <section class="list-box">
+                <h3>💥 Top Películas de Acción:</h3>
+                <ol class="decimal-list">
+                    <li>John Wick (2014)</li>
+                    <li>Mad Max: Fury Road (2015)</li>
+                    <li>Die Hard (1988)</li>
+                </ol>
+            </section>
+
+            <!-- ORDERED LISTS - DRAMA -->
+            <section class="list-box">
+                <h3>🎭 Top Películas de Drama:</h3>
+                <ol class="roman-list">
+                    <li>The Shawshank Redemption (1994)</li>
+                    <li>The Godfather (1972)</li>
+                    <li>Forrest Gump (1994)</li>
+                </ol>
+            </section>
+
+            <!-- ORDERED LISTS - ANIMADAS -->
+            <section class="list-box">
+                <h3>✨ Top Películas Animadas:</h3>
+                <ol class="alpha-list">
+                    <li>Spider-Verse (2018)</li>
+                    <li>Up (2009)</li>
+                    <li>Shrek (2001)</li>
+                </ol>
+            </section>
+
+            <!-- CUSTOM LIST - SUSPENSO PSICOLÓGICO -->
+            <section class="list-box">
+                <h3>🧠 Top Suspenso Psicológico:</h3>
+                <ul class="custom-list">
+                    <li>Gone Girl (2014)</li>
+                    <li>Prisoners (2013)</li>
+                    <li>Se7en (1995)</li>
+                </ul>
+            </section>
+
+
     </main>
 </body>
 
