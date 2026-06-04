@@ -9,7 +9,9 @@
         .chessboard {
             width: 400px;
             height: 400px;
-            border: 5px solid #333;
+            border: 5px solid #555;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            margin: 0 auto;
         }
 
         .row {
@@ -20,87 +22,97 @@
         .cell {
             width: 12.5%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
 
-        /* Fila 1 - impar */
-        .row:nth-child(1) .cell:nth-child(1) { background: white; }
-        .row:nth-child(1) .cell:nth-child(2) { background: black; }
-        .row:nth-child(1) .cell:nth-child(3) { background: white; }
-        .row:nth-child(1) .cell:nth-child(4) { background: black; }
-        .row:nth-child(1) .cell:nth-child(5) { background: white; }
-        .row:nth-child(1) .cell:nth-child(6) { background: black; }
-        .row:nth-child(1) .cell:nth-child(7) { background: white; }
-        .row:nth-child(1) .cell:nth-child(8) { background: black; }
+        /* EFECTO BRILLO TIPO MONEDA PLATEADA - LINEAS DENTRO */
+        .cell::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                transparent 35%,
+                rgba(255,255,255,0.3) 40%,
+                rgba(255,255,255,0.6) 45%,
+                rgba(255,255,255,0.8) 50%,
+                rgba(255,255,255,0.6) 55%,
+                rgba(255,255,255,0.3) 60%,
+                transparent 65%,
+                transparent 100%
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            transform: rotate(25deg);
+        }
 
-        /* Fila 2 - par */
-        .row:nth-child(2) .cell:nth-child(1) { background: black; }
-        .row:nth-child(2) .cell:nth-child(2) { background: white; }
-        .row:nth-child(2) .cell:nth-child(3) { background: black; }
-        .row:nth-child(2) .cell:nth-child(4) { background: white; }
-        .row:nth-child(2) .cell:nth-child(5) { background: black; }
-        .row:nth-child(2) .cell:nth-child(6) { background: white; }
-        .row:nth-child(2) .cell:nth-child(7) { background: black; }
-        .row:nth-child(2) .cell:nth-child(8) { background: white; }
+        .cell:hover::before {
+            opacity: 1;
+            animation: coinShine 0.6s ease forwards;
+        }
 
-        /* Fila 3 - impar */
-        .row:nth-child(3) .cell:nth-child(1) { background: white; }
-        .row:nth-child(3) .cell:nth-child(2) { background: black; }
-        .row:nth-child(3) .cell:nth-child(3) { background: white; }
-        .row:nth-child(3) .cell:nth-child(4) { background: black; }
-        .row:nth-child(3) .cell:nth-child(5) { background: white; }
-        .row:nth-child(3) .cell:nth-child(6) { background: black; }
-        .row:nth-child(3) .cell:nth-child(7) { background: white; }
-        .row:nth-child(3) .cell:nth-child(8) { background: black; }
+        .cell:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 0 15px rgba(192,192,192,0.7);
+        }
 
-        /* Fila 4 - par */
-        .row:nth-child(4) .cell:nth-child(1) { background: black; }
-        .row:nth-child(4) .cell:nth-child(2) { background: white; }
-        .row:nth-child(4) .cell:nth-child(3) { background: black; }
-        .row:nth-child(4) .cell:nth-child(4) { background: white; }
-        .row:nth-child(4) .cell:nth-child(5) { background: black; }
-        .row:nth-child(4) .cell:nth-child(6) { background: white; }
-        .row:nth-child(4) .cell:nth-child(7) { background: black; }
-        .row:nth-child(4) .cell:nth-child(8) { background: white; }
+        @keyframes coinShine {
+            0% {
+                transform: rotate(25deg) translateX(-30%) translateY(-30%);
+            }
+            100% {
+                transform: rotate(25deg) translateX(30%) translateY(30%);
+            }
+        }
 
-        /* Fila 5 - impar */
-        .row:nth-child(5) .cell:nth-child(1) { background: white; }
-        .row:nth-child(5) .cell:nth-child(2) { background: black; }
-        .row:nth-child(5) .cell:nth-child(3) { background: white; }
-        .row:nth-child(5) .cell:nth-child(4) { background: black; }
-        .row:nth-child(5) .cell:nth-child(5) { background: white; }
-        .row:nth-child(5) .cell:nth-child(6) { background: black; }
-        .row:nth-child(5) .cell:nth-child(7) { background: white; }
-        .row:nth-child(5) .cell:nth-child(8) { background: black; }
+        /* PIEZAS DE AJEDREZ ANIMADAS */
+        .cell .piece {
+            animation: float 2s ease-in-out infinite;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-        /* Fila 6 - par */
-        .row:nth-child(6) .cell:nth-child(1) { background: black; }
-        .row:nth-child(6) .cell:nth-child(2) { background: white; }
-        .row:nth-child(6) .cell:nth-child(3) { background: black; }
-        .row:nth-child(6) .cell:nth-child(4) { background: white; }
-        .row:nth-child(6) .cell:nth-child(5) { background: black; }
-        .row:nth-child(6) .cell:nth-child(6) { background: white; }
-        .row:nth-child(6) .cell:nth-child(7) { background: black; }
-        .row:nth-child(6) .cell:nth-child(8) { background: white; }
+        .cell:hover .piece {
+            animation: bounce 0.5s ease;
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 5px rgba(192,192,192,0.8));
+        }
 
-        /* Fila 7 - impar */
-        .row:nth-child(7) .cell:nth-child(1) { background: white; }
-        .row:nth-child(7) .cell:nth-child(2) { background: black; }
-        .row:nth-child(7) .cell:nth-child(3) { background: white; }
-        .row:nth-child(7) .cell:nth-child(4) { background: black; }
-        .row:nth-child(7) .cell:nth-child(5) { background: white; }
-        .row:nth-child(7) .cell:nth-child(6) { background: black; }
-        .row:nth-child(7) .cell:nth-child(7) { background: white; }
-        .row:nth-child(7) .cell:nth-child(8) { background: black; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+        }
 
-        /* Fila 8 - par */
-        .row:nth-child(8) .cell:nth-child(1) { background: black; }
-        .row:nth-child(8) .cell:nth-child(2) { background: white; }
-        .row:nth-child(8) .cell:nth-child(3) { background: black; }
-        .row:nth-child(8) .cell:nth-child(4) { background: white; }
-        .row:nth-child(8) .cell:nth-child(5) { background: black; }
-        .row:nth-child(8) .cell:nth-child(6) { background: white; }
-        .row:nth-child(8) .cell:nth-child(7) { background: black; }
-        .row:nth-child(8) .cell:nth-child(8) { background: white; }
+        @keyframes bounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -109,54 +121,97 @@
             <path
                 d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
             </path>
-        </svg> </a>
+        </svg> 
+    </a>
     <main>
-
-             <header>
+        <header>
             <h1>25 new selectors</h1>
             <h2>Used to select the element(s) you want to style.</h2>
         </header>
         <section>
-        <div class="chessboard">
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-    </div>
-
-         </section>
-
-
-
-
+            <div class="chessboard">
+                <div class="row">
+                    <div class="cell" style="background: white;"><span class="piece">♜</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♞</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♝</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♛</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♚</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♝</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♞</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♜</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background: black;"><span class="piece">♟</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♟</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♟</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♟</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♟</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♟</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♟</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♟</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                    <div class="cell" style="background: black;"></div>
+                    <div class="cell" style="background: white;"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background: white;"><span class="piece">♙</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♙</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♙</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♙</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♙</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♙</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♙</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♙</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background: black;"><span class="piece">♖</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♘</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♗</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♕</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♔</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♗</span></div>
+                    <div class="cell" style="background: black;"><span class="piece">♘</span></div>
+                    <div class="cell" style="background: white;"><span class="piece">♖</span></div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
