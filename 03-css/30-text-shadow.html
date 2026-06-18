@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-text-shadows</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+
+    <style>
+        
+        .shadow-example p {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 0.5rem 0;
+            padding: 0.2rem 0;
+        }
+
+        .shadow1 {
+            text-shadow: 4px 4px 0px #030000;
+        }
+        .shadow2 {
+            text-shadow: 4px 4px 8px #000000;
+        }
+        .shadow3 {
+            text-shadow: 6px 6px 0px #9900ff;
+        }
+        .shadow4 {
+            text-shadow: 2px 2px 0px #7b00ff,
+                         4px 4px 0px #00ff00,
+                         6px 6px 0px #0000ff;
+        }
+        .shadow5 {
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff,
+                         0 0 20px #ff00ff,
+                         0 0 40px #ff00ff;
+        }
+        .shadow6 {
+            color: #333;
+            text-shadow: 1px 1px 0px #080808,
+                         2px 2px 0px #eb87d7,
+                         3px 3px 0px #df75c8,
+                         4px 4px 0px #d983c4,
+                         5px 5px 0px #f086d0,
+                         6px 6px 0px #0b0b0b;
+        }
+        .shadow7 {
+            color: #fff;
+            text-shadow: -1px -1px 0 #000,
+                          1px -1px 0 #000,
+                         -1px  1px 0 #000,
+                          1px  1px 0 #000;
+        }
+        .shadow8 {
+            text-shadow: 0 0 15px rgba(255, 0, 200, 0.8);
+        }
+
+        
+        .shadow-example h5 {
+            text-align: center;
+            margin: 1rem 0 0.2rem 0;
+            color: #aaa;
+            font-weight: normal;
+        }
+        .shadow-example h3 {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        
+        section.shadow-example {
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>30-text-shadow</h1>
+            <h2>Adds shadows to text.</h2>
+        </header>
+
+        <h3 style="text-align:center; margin-top:1.5rem;">Text Shadows</h3>
+
+        <section class="shadow-example">
+            <h3>Sombra simple (desplazamiento x, y)</h3>
+            <p class="shadow1">Texto con sombra simple</p>
+        </section>
+
+        <section class="shadow-example">
+            <h3>Sombra con desenfoque</h3>
+            <p class="shadow2">Texto con desenfoque</p>
+        </section>
+
+        <section class="shadow-example">
+            <h3>Sombra con color personalizado</h3>
+            <p class="shadow3">Texto con color de sombra</p>
+        </section>
+
+        <section class="shadow-example">
+            <h3>Sombra múltiple (varias sombras)</h3>
+            <p class="shadow4">Texto con múltiples sombras</p>
+        </section>
+
+        <section class="shadow-example">
+            <h3>Efecto resplandor (glow)</h3>
+            <p class="shadow5">Texto con resplandor</p>
+        </section>
+
+        <section class="shadow-example">
+            <h3>Sombra 3D (profundidad)</h3>
+            <p class="shadow6">Texto con efecto 3D</p>
+        </section>
+
+        <section class="shadow-example">
+            <h3>Sombra con borde (outline)</h3>
+            <p class="shadow7">Texto con borde de sombra</p>
+        </section>
+
+        <section class="shadow-example">
+            <h3>Sombra con difuminado suave</h3>
+            <p class="shadow8">Texto con difuminado suave</p>
+        </section>
+
+    </main>
+</body>
+
+</html>

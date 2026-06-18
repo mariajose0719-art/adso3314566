@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35-transformations</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+
+    <style>
+        .transform-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .transform-example {
+            flex: 0 0 200px;
+            text-align: center;
+            background-color: #663399a2;
+            border-radius: 0.2rem;
+            padding: 0.8rem 0.5rem;
+            min-width: 180px;
+            overflow: hidden;
+        }
+
+        .transform-example h3 {
+            color: white;
+            border-bottom: 2px dotted white;
+            margin: 0 0 0.5rem 0;
+            padding-bottom: 0.3rem;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+
+        .transform-example img {
+            border: none;
+            border-radius: 0;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
+            max-width: 190px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .translate-x img {
+            transform: translateX(20px);
+        }
+        .translate-x img:hover {
+            transform: translateX(0);
+        }
+
+        .translate-y img {
+            transform: translateY(20px);
+        }
+        .translate-y img:hover {
+            transform: translateY(0);
+        }
+
+        .translate-xy img {
+            transform: translate(15px, -15px);
+        }
+        .translate-xy img:hover {
+            transform: translate(0, 0);
+        }
+
+        .rotate-90 img {
+            transform: rotate(90deg);
+        }
+        .rotate-90 img:hover {
+            transform: rotate(0deg);
+        }
+
+        .rotate-180 img {
+            transform: rotate(180deg);
+        }
+        .rotate-180 img:hover {
+            transform: rotate(0deg);
+        }
+
+        .rotate-45 img {
+            transform: rotate(45deg);
+        }
+        .rotate-45 img:hover {
+            transform: rotate(0deg);
+        }
+
+        .scale img {
+            transform: scale(0.8);
+        }
+        .scale img:hover {
+            transform: scale(1);
+        }
+
+        .skew img {
+            transform: skew(10deg, 6deg);
+        }
+        .skew img:hover {
+            transform: skew(0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>35-transformations</h1>
+            <h2>Property lets you rotate, scale, skew, or translate an element</h2>
+        </header>
+
+        <div class="transform-grid">
+            <section class="transform-example translate-x">
+                <h3>Traslación horizontal</h3>
+                <img src="../chepe.jpg" alt="Translate X">
+            </section>
+
+            <section class="transform-example translate-y">
+                <h3>Traslación vertical</h3>
+                <img src="../chepe.jpg" alt="Translate Y">
+            </section>
+
+            <section class="transform-example translate-xy">
+                <h3>Traslación diagonal</h3>
+                <img src="../chepe.jpg" alt="Translate XY">
+            </section>
+
+            <section class="transform-example rotate-90">
+                <h3>Rotación 90° (vertical)</h3>
+                <img src="../chepe.jpg" alt="Rotate 90">
+            </section>
+
+            <section class="transform-example rotate-180">
+                <h3>Rotación 180° (cabeza abajo)</h3>
+                <img src="../chepe.jpg" alt="Rotate 180">
+            </section>
+
+            <section class="transform-example rotate-45">
+                <h3>Rotación 45° (diagonal)</h3>
+                <img src="../chepe.jpg" alt="Rotate 45">
+            </section>
+
+            <section class="transform-example scale">
+                <h3>Escala (reducir)</h3>
+                <img src="../chepe.jpg" alt="Scale">
+            </section>
+
+            <section class="transform-example skew">
+                <h3>Sesgado (skew)</h3>
+                <img src="../chepe.jpg" alt="Skew">
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

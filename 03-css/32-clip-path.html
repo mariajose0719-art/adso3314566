@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>32-clip-path</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+
+    <style>
+        .clip-example {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .clip-example h3 {
+            margin: 0.5rem 0 0.2rem 0;
+            color: #aaa;
+            font-weight: normal;
+            font-size: 1.17rem;
+        }
+        .clip-example img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border: none;
+            outline: none;
+            width: 300px;
+            transition: clip-path 0.3s ease;
+        }
+
+        /* Clip paths iniciales y hover */
+
+        /* Círculo */
+        .clip-circle img {
+            clip-path: circle(50% at 50% 50%);
+        }
+        .clip-circle img:hover {
+            clip-path: ellipse(60% 40% at 50% 50%);
+        }
+
+        /* Elipse */
+        .clip-ellipse img {
+            clip-path: ellipse(40% 60% at 50% 50%);
+        }
+        .clip-ellipse img:hover {
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        /* Polígono (triángulo) */
+        .clip-triangle img {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        .clip-triangle img:hover {
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        }
+
+        /* Polígono (hexágono) */
+        .clip-hexagon img {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .clip-hexagon img:hover {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        /* Polígono (estrella) */
+        .clip-star img {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .clip-star img:hover {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* Polígono (pentágono) */
+        .clip-pentagon img {
+            clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
+        }
+        .clip-pentagon img:hover {
+            clip-path: circle(45% at 50% 50%);
+        }
+
+        /* Polígono (rombo) */
+        .clip-rhombus img {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        .clip-rhombus img:hover {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* Polígono (flecha) */
+        .clip-arrow img {
+            clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+        }
+        .clip-arrow img:hover {
+            clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 40% 100%, 40% 60%, 0% 60%, 0% 40%, 40% 40%);
+        }
+
+        /* Polígono (corazón) - con valores aproximados */
+        .clip-heart img {
+            clip-path: polygon(50% 20%, 20% 0%, 0% 30%, 20% 60%, 50% 100%, 80% 60%, 100% 30%, 80% 0%);
+        }
+        .clip-heart img:hover {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        /* Polígono (octágono) */
+        .clip-octagon img {
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+        .clip-octagon img:hover {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>32-clip-path</h1>
+            <h2>Property lets you clip an element to a basic shape</h2>
+        </header>
+
+        <h3 style="text-align:center; margin-top:1.5rem;">CSS Clip-Path</h3>
+
+        <section class="clip-example clip-circle">
+            <h3>Circle (hover: elipse)</h3>
+            <img src="../chepe.jpg" alt="Clip circle">
+        </section>
+
+        <section class="clip-example clip-ellipse">
+            <h3>Ellipse (hover: círculo)</h3>
+            <img src="../chepe.jpg" alt="Clip ellipse">
+        </section>
+
+        <section class="clip-example clip-triangle">
+            <h3>Triangle (hover: triángulo invertido)</h3>
+            <img src="../chepe.jpg" alt="Clip triangle">
+        </section>
+
+        <section class="clip-example clip-hexagon">
+            <h3>Hexagon (hover: hexágono girado)</h3>
+            <img src="../chepe.jpg" alt="Clip hexagon">
+        </section>
+
+        <section class="clip-example clip-star">
+            <h3>Star (hover: rectángulo)</h3>
+            <img src="../chepe.jpg" alt="Clip star">
+        </section>
+
+        <section class="clip-example clip-pentagon">
+            <h3>Pentagon (hover: círculo)</h3>
+            <img src="../chepe.jpg" alt="Clip pentagon">
+        </section>
+
+        <section class="clip-example clip-rhombus">
+            <h3>Rhombus (hover: rectángulo)</h3>
+            <img src="../chepe.jpg" alt="Clip rhombus">
+        </section>
+
+        <section class="clip-example clip-arrow">
+            <h3>Arrow (hover: forma de flecha compleja)</h3>
+            <img src="../chepe.jpg" alt="Clip arrow">
+        </section>
+
+        <section class="clip-example clip-heart">
+            <h3>Heart (hover: rombo)</h3>
+            <img src="../chepe.jpg" alt="Clip heart">
+        </section>
+
+        <section class="clip-example clip-octagon">
+            <h3>Octagon (hover: hexágono girado)</h3>
+            <img src="../chepe.jpg" alt="Clip octagon">
+        </section>
+    </main>
+</body>
+
+</html>

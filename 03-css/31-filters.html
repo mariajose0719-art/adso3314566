@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31-filters</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+
+    <style>
+        .filter-example {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .filter-example h3 {
+            margin: 0.5rem 0 0.2rem 0;
+            color: #aaa;
+            font-weight: normal;
+            font-size: 1.17rem;
+        }
+        .filter-example img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border: none;
+            outline: none;
+            width: 300px;
+            transition: filter 0.3s ease;
+        }
+
+        /* Filtros individuales - al hacer hover vuelven a su estado original */
+        .filter-blur img {
+            filter: blur(3px);
+        }
+        .filter-blur img:hover {
+            filter: none;
+        }
+
+        .filter-brightness img {
+            filter: brightness(1.5);
+        }
+        .filter-brightness img:hover {
+            filter: none;
+        }
+
+        .filter-contrast img {
+            filter: contrast(2);
+        }
+        .filter-contrast img:hover {
+            filter: none;
+        }
+
+        .filter-grayscale img {
+            filter: grayscale(1);
+        }
+        .filter-grayscale img:hover {
+            filter: none;
+        }
+
+        .filter-hue-rotate img {
+            filter: hue-rotate(180deg);
+        }
+        .filter-hue-rotate img:hover {
+            filter: none;
+        }
+
+        .filter-invert img {
+            filter: invert(1);
+        }
+        .filter-invert img:hover {
+            filter: none;
+        }
+
+        .filter-opacity img {
+            filter: opacity(0.5);
+        }
+        .filter-opacity img:hover {
+            filter: none;
+        }
+
+        .filter-saturate img {
+            filter: saturate(3);
+        }
+        .filter-saturate img:hover {
+            filter: none;
+        }
+
+        .filter-sepia img {
+            filter: sepia(1);
+        }
+        .filter-sepia img:hover {
+            filter: none;
+        }
+
+        .filter-drop-shadow img {
+            filter: drop-shadow(8px 8px 10px rgba(0,0,0,0.8));
+        }
+        .filter-drop-shadow img:hover {
+            filter: none;
+        }
+
+        .filter-combo img {
+            filter: brightness(1.2) contrast(1.5) saturate(0.8) hue-rotate(45deg);
+        }
+        .filter-combo img:hover {
+            filter: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>31-filters</h1>
+            <h2>Defines visual effects (like blur and saturation)</h2>
+        </header>
+
+        <h3 style="text-align:center; margin-top:1.5rem;">CSS Filters (hover para ver original)</h3>
+
+        <section class="filter-example filter-blur">
+            <h3>Blur (desenfoque)</h3>
+            <img src="../chepe.jpg" alt="Chepe con blur">
+        </section>
+
+        <section class="filter-example filter-brightness">
+            <h3>Brightness (brillo)</h3>
+            <img src="../chepe.jpg" alt="Chepe con brillo">
+        </section>
+
+        <section class="filter-example filter-contrast">
+            <h3>Contrast (contraste)</h3>
+            <img src="../chepe.jpg" alt="Chepe con contraste">
+        </section>
+
+        <section class="filter-example filter-grayscale">
+            <h3>Grayscale (escala de grises)</h3>
+            <img src="../chepe.jpg" alt="Chepe en grises">
+        </section>
+
+        <section class="filter-example filter-hue-rotate">
+            <h3>Hue-rotate (rotación de tono)</h3>
+            <img src="../chepe.jpg" alt="Chepe con tono cambiado">
+        </section>
+
+        <section class="filter-example filter-invert">
+            <h3>Invert (invertir colores)</h3>
+            <img src="../chepe.jpg" alt="Chepe invertido">
+        </section>
+
+        <section class="filter-example filter-opacity">
+            <h3>Opacity (opacidad)</h3>
+            <img src="../chepe.jpg" alt="Chepe con opacidad">
+        </section>
+
+        <section class="filter-example filter-saturate">
+            <h3>Saturate (saturación)</h3>
+            <img src="../chepe.jpg" alt="Chepe con saturación alta">
+        </section>
+
+        <section class="filter-example filter-sepia">
+            <h3>Sepia (efecto sepia)</h3>
+            <img src="../chepe.jpg" alt="Chepe en sepia">
+        </section>
+
+        <section class="filter-example filter-drop-shadow">
+            <h3>Drop-shadow (sombra)</h3>
+            <img src="../chepe.jpg" alt="Chepe con sombra">
+        </section>
+
+        <section class="filter-example filter-combo">
+            <h3>Combinación de filtros</h3>
+            <img src="../chepe.jpg" alt="Chepe con varios filtros">
+        </section>
+    </main>
+</body>
+
+</html>
