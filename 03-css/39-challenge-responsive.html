@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chepe Fortuna</title>
+    <style>
+     *{
+        margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+     }
+     body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #013571;
+        min-height: 100dvh;
+        position: relative;
+        overflow-x: hidden;
+        color: #fff;
+        padding: 2rem 1.5rem;
+     }   
+
+     body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(../src/imgs/fondo.jpg) no-repeat center center / cover;
+            opacity: 0.25;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .burbujas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .burbujas span {
+            position: absolute;
+            display: block;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0.02));
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255,255,255,0.15);
+            animation: subirBurbuja linear infinite;
+            opacity: 0.3;
+        }
+        .burbujas span:nth-child(1) { width: 30px; height: 30px; left: 5%; animation-duration: 7s; animation-delay: 0s; }
+        .burbujas span:nth-child(2) { width: 50px; height: 50px; left: 15%; animation-duration: 9s; animation-delay: 1s; }
+        .burbujas span:nth-child(3) { width: 20px; height: 20px; left: 25%; animation-duration: 5s; animation-delay: 0.5s; }
+        .burbujas span:nth-child(4) { width: 60px; height: 60px; left: 35%; animation-duration: 11s; animation-delay: 2s; }
+        .burbujas span:nth-child(5) { width: 25px; height: 25px; left: 45%; animation-duration: 6s; animation-delay: 1.5s; }
+        .burbujas span:nth-child(6) { width: 45px; height: 45px; left: 55%; animation-duration: 8s; animation-delay: 0.8s; }
+        .burbujas span:nth-child(7) { width: 15px; height: 15px; left: 65%; animation-duration: 4.5s; animation-delay: 2.5s; }
+        .burbujas span:nth-child(8) { width: 55px; height: 55px; left: 75%; animation-duration: 10s; animation-delay: 0.2s; }
+        .burbujas span:nth-child(9) { width: 35px; height: 35px; left: 85%; animation-duration: 7.5s; animation-delay: 3s; }
+        .burbujas span:nth-child(10) { width: 40px; height: 40px; left: 95%; animation-duration: 6.5s; animation-delay: 1.2s; }
+        .burbujas span:nth-child(11) { width: 28px; height: 28px; left: 10%; animation-duration: 8.5s; animation-delay: 0.3s; }
+        .burbujas span:nth-child(12) { width: 48px; height: 48px; left: 50%; animation-duration: 9.5s; animation-delay: 2.2s; }
+
+        @keyframes subirBurbuja {
+            0% { transform: translateY(100vh) scale(0.4) rotate(0deg); opacity: 0.1; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(1.3) rotate(720deg); opacity: 0; }
+        }
+
+        .contenido {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: block;
+            max-width: 220px;
+            margin: 0 auto 2.5rem auto;
+            width: 100%;
+            height: auto;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .tarjeta {
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 1 / 1; /* cuadrado perfecto */
+            border-radius: 0 !important; /* sin bordes redondos */
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+        }
+
+        .tarjeta .nombre {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.7rem 0.5rem;
+            background: rgba(0, 70, 200, 0.55);
+            backdrop-filter: blur(2px);
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            border-top: 3px solid rgba(255, 255, 255, 0.9);
+            transition: transform 0.4s ease, background 0.3s;
+            transform: translateY(0);
+            border-radius: 0;
+        }
+
+        .tarjeta:hover .nombre {
+            transform: translateY(30%);
+            background: rgba(0, 70, 200, 0.75);
+        }
+
+        .bloques {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .bloque {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 60, 160, 0.4);
+            backdrop-filter: blur(6px);
+            border-radius: 0;
+            padding: 1.2rem 1.5rem;
+            gap: 1.8rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .bloque img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 0;
+            flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .bloque .info {
+            flex: 1;
+        }
+        .bloque .info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        .bloque .info p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0f0ff;
+            margin-top: 0.6rem;
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .tarjetas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bloque {
+                flex-direction: row;
+                padding: 1rem;
+            }
+            .bloque img {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .tarjetas {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .bloque {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.2rem;
+            }
+            .bloque img {
+                width: 140px;
+                height: 140px;
+            }
+            .bloque .info h3 {
+                border-bottom: 2px solid rgba(255,255,255,0.6);
+                display: inline-block;
+            }
+            .logo {
+                max-width: 160px;
+            }
+            body {
+                padding: 1rem;
+            }
+        }
+
+        * {
+            border-radius: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Burbujas de ambiente mar -->
+    <div class="burbujas">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="contenido">
+
+      <img src="../src/imgs/logo.png" alt="Logo" class="logo" />
+       <div class="tarjetas">
+            <div class="tarjeta">
+                <img src="../src/imgs/asuncion.png" alt="Asunción" />
+                <div class="nombre">Asunción</div>
+            </div>
+            <div class="tarjeta">
+                <img src="../src/imgs/chepe.jpg" alt="Chepe" />
+                <div class="nombre">Chepe</div>
+            </div>
+            <div class="tarjeta">
+                <img src="../src/imgs/niña.jpg" alt="Niña" />
+                <div class="nombre">Niña</div>
+            </div>
+            <div class="tarjeta">
+                <img src="../src/imgs/milagros.jpg" alt="Milagros" />
+                <div class="nombre">Milagros</div>
+            </div>
+        </div>
+        
+        <div class="bloques">
+            <div class="bloque">
+                <img src="../src/imgs/luka.jpg" alt="Luka" />
+                <div class="info">
+                    <h3>Luka</h3>
+                    <p>Joven enigmático y aventurero, siempre en busca de nuevos horizontes. Su espíritu libre y su mirada curiosa lo llevan a descubrir los secretos del mar.</p>
+                </div>
+            </div>
+            <div class="bloque">
+                <img src="../src/imgs/celosa.jpg" alt="Celosa" />
+                <div class="info">
+                    <h3>La Celosa</h3>
+                    <p>Petra de Meza es una mujer divertida, exagerada, chismosa y muy posesiva con su esposo. Aunque sus celos la meten constantemente en problemas y situaciones cómicas, tiene buen corazón, es leal a su familia y siempre está pendiente de su comunidad.</p>
+                </div>
+            </div>
+            <div class="bloque">
+                <img src="../src/imgs/reinacarolina.jpg" alt="Reina Carolina" />
+                <div class="info">
+                    <h3>Reina Carolina</h3>
+                    <p>Mujer de noble cuna y espíritu indomable. Su liderazgo y sabiduría la convirtieron en el pilar de su pueblo, guiando a los suyos con justicia y valentía.</p>
+                </div>
+            </div>
+            <div class="bloque">
+                <img src="../src/imgs/anibal.jpg" alt="Aníbal" />
+                <div class="info">
+                    <h3>Aníbal Conrado</h3>
+                    <p>Hombre ambicioso, manipulador y calculador que busca poder e influencia política. A menudo antepone sus intereses personales a los de los demás, convirtiéndose en uno de los principales antagonistas de la historia. Su carácter frío y estratégico lo lleva a enfrentarse constantemente con Chepe Fortuna.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        </body>
+</html>

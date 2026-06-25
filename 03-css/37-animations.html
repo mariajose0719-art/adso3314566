@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37-animations</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        main section div.jungle {
+            background: url(../src/imgs/jungle.png) no-repeat center;
+            border-radius: 4px;
+            margin-block: 2rem;
+            position: relative;
+            height: 471px;
+            width: 380px;
+        }
+
+        main section div.jungle img {
+            border-radius: 0;
+            border: none;
+            position: absolute;
+        }
+
+        main section div.jungle img.logo {
+            top: 35px;
+            left: 30px;
+            height: 72px;
+            object-fit: contain;
+            z-index: 9;
+            width: 317px;
+            animation: 2s animLogo ease-in infinite;
+        }
+
+        main section div.jungle img.dk {
+            top: 100px; /* estaba en 120px, lo subimos un poco */
+            left: 120px;
+            width: 140px;
+            object-fit: contain;
+            z-index: 8;
+            animation: 5s animDK ease-in infinite; /* misma duración que Ryno */
+        }
+
+        main section div.jungle div.move {
+            position: absolute;
+            top: 240px;
+            left: 0;
+        }
+
+        main section div.jungle div.move img.ryno {
+            width: 140px;
+            object-fit: contain;
+            top: 0;
+            animation: 5s animRyno ease-in-out infinite;
+        }
+
+        @keyframes animLogo {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes animDK {
+            0% {
+                top: 100px;
+                transform: rotateX(0deg);
+            }
+            15% {
+                top: 60px;
+                transform: rotateX(0deg);
+            }
+            20% {
+                top: 60px;
+                transform: rotateX(360deg);
+            }
+            25% {
+                top: 60px;
+                transform: rotateX(360deg);
+            }
+            30% {
+                top: 100px;
+                transform: rotateX(360deg);
+            }
+            100% {
+                top: 100px;
+                transform: rotateX(360deg);
+            }
+        }
+
+        @keyframes animRyno {
+            0% {
+                transform: translateX(0px) translateY(0px) scaleX(1);
+            }
+            15% {
+                transform: translateX(80px) translateY(0px) scaleX(1);
+            }
+            20% {
+                transform: translateX(100px) translateY(-50px) rotate(-10deg) scaleX(1);
+            }
+            25% {
+                transform: translateX(100px) translateY(-10px) rotate(10deg) scaleX(1);
+            }
+            30% {
+                transform: translateX(100px) translateY(0px) scaleX(1);
+            }
+            35% {
+                transform: translateX(120px) translateY(0px) scaleX(1);
+            }
+            45% {
+                transform: translateX(120px) translateY(0px) scaleX(-1);
+            }
+            80% {
+                transform: translateX(0px) translateY(0px) scaleX(-1);
+            }
+            100% {
+                transform: translateX(0px) translateY(0px) scaleX(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>37-animations</h1>
+            <h2>Lets an element gradually change from one style to another.</h2>
+        </header>
+
+        <section>
+            <div class="jungle">
+                <img src="../src/imgs/logo-dk.png" class="logo" alt="logo">
+                <img src="../src/imgs/dk.png" class="dk" alt="dk">
+                <div class="move">
+                    <img src="../src/imgs/ryno.png" class="ryno" alt="ryno">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
