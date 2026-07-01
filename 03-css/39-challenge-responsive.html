@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chepe Fortuna</title>
     <style>
-     *{
-        margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-     }
-     body{
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #013571;
-        min-height: 100dvh;
-        position: relative;
-        overflow-x: hidden;
-        color: #fff;
-        padding: 2rem 1.5rem;
-     }   
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #013571;
+            min-height: 100dvh;
+            position: relative;
+            overflow-x: hidden;
+            color: #fff;
+            padding: 2rem 1.5rem;
+        }
 
-     body::before {
+        body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url(../src/imgs/fondo.jpg) no-repeat center center / cover;
+            background: url(../src/imgs/fondo.png) no-repeat center center / cover;
             opacity: 0.25;
             z-index: -1;
             filter: blur(1px);
@@ -47,7 +47,7 @@
             position: absolute;
             display: block;
             background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0.02));
-            border-radius: 50%;
+            border-radius: 50% !important;
             box-shadow: 0 0 30px rgba(255,255,255,0.15);
             animation: subirBurbuja linear infinite;
             opacity: 0.3;
@@ -81,7 +81,7 @@
 
         .logo {
             display: block;
-            max-width: 220px;
+            max-width: 300px;
             margin: 0 auto 2.5rem auto;
             width: 100%;
             height: auto;
@@ -98,10 +98,9 @@
             position: relative;
             overflow: hidden;
             background: #000;
-            aspect-ratio: 1 / 1; /* cuadrado perfecto */
-            border-radius: 0 !important; /* sin bordes redondos */
+            aspect-ratio: 1 / 1;
+            border-radius: 0 !important;
         }
-
         .tarjeta img {
             width: 100%;
             height: 100%;
@@ -115,23 +114,34 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 0.7rem 0.5rem;
+            height: 30%;
             background: rgba(0, 70, 200, 0.55);
             backdrop-filter: blur(2px);
-            color: #fff;
-            font-weight: 600;
-            text-align: center;
-            font-size: 1.2rem;
-            letter-spacing: 0.5px;
             border-top: 3px solid rgba(255, 255, 255, 0.9);
-            transition: transform 0.4s ease, background 0.3s;
-            transform: translateY(0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: background 0.3s;
             border-radius: 0;
         }
 
+        .tarjeta .nombre span {
+            display: block;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            transition: transform 0.4s ease;
+            transform: translateY(0);
+        }
+
         .tarjeta:hover .nombre {
-            transform: translateY(30%);
             background: rgba(0, 70, 200, 0.75);
+        }
+
+        .tarjeta:hover .nombre span {
+            transform: translateY(-30%);
         }
 
         .bloques {
@@ -152,7 +162,6 @@
             border: 1px solid rgba(255,255,255,0.12);
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-
         .bloque img {
             width: 130px;
             height: 130px;
@@ -161,7 +170,6 @@
             flex-shrink: 0;
             border: 2px solid rgba(255,255,255,0.2);
         }
-
         .bloque .info {
             flex: 1;
         }
@@ -173,7 +181,6 @@
             padding-bottom: 0.3rem;
             display: inline-block;
         }
-
         .bloque .info p {
             font-size: 1rem;
             line-height: 1.6;
@@ -215,7 +222,7 @@
                 display: inline-block;
             }
             .logo {
-                max-width: 160px;
+                max-width: 200px;
             }
             body {
                 padding: 1rem;
@@ -225,11 +232,13 @@
         * {
             border-radius: 0 !important;
         }
+        .burbujas span {
+            border-radius: 50% !important;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Burbujas de ambiente mar -->
     <div class="burbujas">
         <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
@@ -237,27 +246,27 @@
     </div>
 
     <div class="contenido">
+        <img src="../src/imgs/logook.png" alt="Logo" class="logo" />
 
-      <img src="../src/imgs/logo.png" alt="Logo" class="logo" />
-       <div class="tarjetas">
+        <div class="tarjetas">
             <div class="tarjeta">
                 <img src="../src/imgs/asuncion.png" alt="Asunción" />
-                <div class="nombre">Asunción</div>
+                <div class="nombre"><span>Asunción</span></div>
             </div>
             <div class="tarjeta">
                 <img src="../src/imgs/chepe.jpg" alt="Chepe" />
-                <div class="nombre">Chepe</div>
+                <div class="nombre"><span>Chepe</span></div>
             </div>
             <div class="tarjeta">
                 <img src="../src/imgs/niña.jpg" alt="Niña" />
-                <div class="nombre">Niña</div>
+                <div class="nombre"><span>Niña</span></div>
             </div>
             <div class="tarjeta">
                 <img src="../src/imgs/milagros.jpg" alt="Milagros" />
-                <div class="nombre">Milagros</div>
+                <div class="nombre"><span>Milagros</span></div>
             </div>
         </div>
-        
+
         <div class="bloques">
             <div class="bloque">
                 <img src="../src/imgs/luka.jpg" alt="Luka" />
@@ -288,6 +297,7 @@
                 </div>
             </div>
         </div>
-        </div>
-        </body>
+    </div>
+
+</body>
 </html>
