@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Beetle Ride</title>
+
+
+    <!-- CSS GENERAL DE TU PROYECTO -->
+    <link rel="stylesheet"
+          href="../src/css/04-javascript.css">
+
+
+    <style>
+
+        /* =====================================================
+           IMPORTANTE
+           ESTO ANULA LOS ESTILOS GENERALES QUE PONEN
+           FONDOS BLANCOS A LOS BOTONES E IMÁGENES
+        ===================================================== */
+
+        .vehicle img,
+        .vehicle button,
+        .vehicle figure {
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+
+        }
+
+
+        .vehicle button {
+
+            background: transparent !important;
+
+            padding: 0 !important;
+
+            margin: 0 !important;
+
+        }
+
+
+        .vehicle img {
+
+            background: transparent !important;
+
+        }
+
+
+        .vehicle figure {
+
+            background: transparent !important;
+
+        }
+
+
+
+        /* =====================================================
+           CONTENEDOR PRINCIPAL
+        ===================================================== */
+
+        .vehicle {
+
+            width: 412px;
+
+            margin: 30px auto;
+
+            padding: 16px;
+
+            box-sizing: border-box;
+
+            border-radius: 15px;
+
+            background: #10051a;
+
+            border: 2px solid #8b20d4 !important;
+
+            color: white;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 20px rgba(170, 30, 255, 0.25);
+
+            min-height: 0 !important;
+
+            height: auto !important;
+
+        }
+
+
+
+        /* =====================================================
+           MODO CLARO
+        ===================================================== */
+
+        .vehicle.light {
+
+            background: #fff7d8;
+
+            color: #24162c;
+
+            border-color: #e4b900 !important;
+
+        }
+
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .vehicle-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            height: 75px;
+
+        }
+
+
+        .logo {
+
+            width: 235px !important;
+
+            height: 70px !important;
+
+            object-fit: contain;
+
+            display: block;
+
+        }
+
+
+        .mode-button {
+
+            width: 70px !important;
+
+            height: 60px !important;
+
+            object-fit: contain;
+
+            display: block;
+
+            cursor: pointer;
+
+            transition:
+                transform .2s ease;
+
+        }
+
+
+        .mode-button:hover {
+
+            transform: scale(1.06);
+
+        }
+
+
+
+        /* =====================================================
+           NAVEGACIÓN
+        ===================================================== */
+
+        .vehicle-nav {
+
+            display: grid;
+
+            grid-template-columns:
+                60px 1fr 60px;
+
+            gap: 10px;
+
+            align-items: center;
+
+            margin-top: 15px;
+
+        }
+
+
+        .nav-button {
+
+            width: 60px !important;
+
+            height: 60px !important;
+
+            object-fit: contain;
+
+            display: block;
+
+            cursor: pointer;
+
+            transition:
+                transform .2s ease;
+
+        }
+
+
+        .nav-button:hover {
+
+            transform: scale(1.08);
+
+        }
+
+
+        .nav-button:active {
+
+            transform: scale(.95);
+
+        }
+
+
+
+        /* =====================================================
+           MARCA
+        ===================================================== */
+
+        .brand {
+
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #281034 !important;
+
+            border-radius: 8px;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+        }
+
+
+        .light .brand {
+
+            background: #ffffff !important;
+
+            color: #28172d;
+
+        }
+
+
+
+        /* =====================================================
+           INFORMACIÓN
+        ===================================================== */
+
+        .vehicle-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .info-card {
+
+            height: 90px;
+
+            padding: 5px;
+
+            box-sizing: border-box;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #281034 !important;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+        }
+
+
+        .light .info-card {
+
+            background: #ffffff !important;
+
+        }
+
+
+        .info-card img {
+
+            width: 48px !important;
+
+            height: 38px !important;
+
+            object-fit: contain;
+
+            display: block;
+
+        }
+
+
+        .info-label {
+
+            font-size: 11px;
+
+            opacity: .65;
+
+            margin-top: 3px;
+
+        }
+
+
+        .info-value {
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin-top: 3px;
+
+        }
+
+
+
+        /* =====================================================
+           ESCENARIO
+        ===================================================== */
+
+        .race-scene {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 240px;
+
+            margin-top: 18px;
+
+            overflow: hidden;
+
+            border-radius: 8px;
+
+            background-image:
+                url("../fdia.png");
+
+            background-size: 130% 100%;
+
+            background-position:
+                0 center;
+
+            background-repeat:
+                repeat-x;
+
+            transition:
+                background-image .4s ease;
+
+        }
+
+
+
+        /* =====================================================
+           FONDO MOVIÉNDOSE
+        ===================================================== */
+
+        .race-scene.moving-forward {
+
+            animation:
+                driveForward 2.5s linear infinite;
+
+        }
+
+
+        .race-scene.moving-back {
+
+            animation:
+                driveBackward 2.5s linear infinite;
+
+        }
+
+
+        @keyframes driveForward {
+
+            from {
+
+                background-position-x:
+                    0%;
+
+            }
+
+            to {
+
+                background-position-x:
+                    -30%;
+
+            }
+
+        }
+
+
+        @keyframes driveBackward {
+
+            from {
+
+                background-position-x:
+                    -30%;
+
+            }
+
+            to {
+
+                background-position-x:
+                    0%;
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           CARRO
+        ===================================================== */
+
+        .car {
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 125px;
+
+            left: 50%;
+
+            bottom: 5px;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 5;
+
+        }
+
+
+        .car img {
+
+            width: 100% !important;
+
+            height: 100% !important;
+
+            object-fit: contain;
+
+            display: block;
+
+            background: transparent !important;
+
+            border: none !important;
+
+            box-shadow: none !important;
+
+        }
+
+
+
+        /* =====================================================
+           MOTOR ENCENDIDO
+        ===================================================== */
+
+        .car.on img {
+
+            filter:
+                drop-shadow(
+                    0 0 5px
+                    rgba(255, 220, 0, .5)
+                );
+
+            animation:
+                engineVibration
+                .12s
+                infinite
+                alternate;
+
+        }
+
+
+        @keyframes engineVibration {
+
+            from {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            to {
+
+                transform:
+                    translateY(-2px);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           CARRO AVANZANDO
+        ===================================================== */
+
+        .car.forward {
+
+            transform:
+                translateX(-50%)
+                translateY(-2px);
+
+        }
+
+
+
+        /* =====================================================
+           CARRO RETROCEDIENDO
+        ===================================================== */
+
+        .car.back {
+
+            transform:
+                translateX(-50%)
+                translateY(-2px);
+
+        }
+
+
+
+        /* =====================================================
+           CONTROLES
+        ===================================================== */
+
+        .vehicle-controls {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 6px;
+
+            margin-top: 20px;
+
+            height: 70px;
+
+        }
+
+
+        .control-button {
+
+            width: 100% !important;
+
+            height: 70px !important;
+
+            padding: 0 !important;
+
+            margin: 0 !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            background:
+                transparent !important;
+
+            box-shadow:
+                none !important;
+
+            cursor: pointer;
+
+            transition:
+                transform .15s ease;
+
+        }
+
+
+        .control-button img {
+
+            width: 100% !important;
+
+            height: 100% !important;
+
+            object-fit: contain;
+
+            display: block;
+
+            background:
+                transparent !important;
+
+            border: none !important;
+
+            box-shadow:
+                none !important;
+
+        }
+
+
+        .control-button:hover {
+
+            transform:
+                scale(1.05);
+
+        }
+
+
+        .control-button:active {
+
+            transform:
+                scale(.94);
+
+        }
+
+
+
+        /* =====================================================
+           ESTADO
+           LO DEJAMOS INVISIBLE PARA QUE NO MOLESTE
+        ===================================================== */
+
+        .vehicle-status {
+
+            display: none !important;
+
+        }
+
+
+
+        /* =====================================================
+           QUITAR ESPACIO INFERIOR
+        ===================================================== */
+
+        .content-section {
+
+            height: auto !important;
+
+            min-height: 0 !important;
+
+            overflow: visible !important;
+
+        }
+
+
+        main {
+
+            min-height: 0 !important;
+
+            max-height: none !important;
+
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 500px) {
+
+            .vehicle {
+
+                width: 95%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <!-- =====================================================
+         VOLVER AL MENÚ
+    ===================================================== -->
+
+    <a href="index.html"
+       class="btn-home">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="32"
+             height="32"
+             fill="white"
+             viewBox="0 0 256 256">
+
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+
+        </svg>
+
+    </a>
+
+
+
+    <!-- =====================================================
+         JUEGO
+    ===================================================== -->
+
+    <section class="content-section">
+
+
+        <div class="vehicle light"
+             id="vehicle">
+
+
+
+            <!-- =================================================
+                 LOGO + MODO
+            ================================================= -->
+
+            <header class="vehicle-header">
+
+
+                <img
+                    src="../logo.png"
+                    class="logo"
+                    alt="Beetle Ride">
+
+
+                <img
+                    src="../mdia.png"
+                    class="mode-button"
+                    id="modeButton"
+                    alt="Modo día">
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 ANTERIOR - MARCA - SIGUIENTE
+            ================================================= -->
+
+            <nav class="vehicle-nav">
+
+
+                <img
+                    src="../anterior.png"
+                    class="nav-button"
+                    id="prev"
+                    alt="Anterior">
+
+
+                <div class="brand">
+
+                    VOLKSWAGEN
+
+                </div>
+
+
+                <img
+                    src="../siguiente.png"
+                    class="nav-button"
+                    id="next"
+                    alt="Siguiente">
+
+
+            </nav>
+
+
+
+            <!-- =================================================
+                 INFORMACIÓN DEL VEHÍCULO
+            ================================================= -->
+
+            <div class="vehicle-info">
+
+
+                <!-- MODELO -->
+
+                <div class="info-card">
+
+
+                    <img
+                        src="../modelo.png"
+                        alt="Modelo">
+
+
+                    <span class="info-label">
+
+                        Modelo
+
+                    </span>
+
+
+                    <strong
+                        class="info-value"
+                        id="model">
+
+                        Escarabajo
+
+                    </strong>
+
+
+                </div>
+
+
+
+                <!-- REFERENCIA -->
+
+                <div class="info-card">
+
+
+                    <img
+                        src="../referencia.png"
+                        alt="Referencia">
+
+
+                    <span class="info-label">
+
+                        Referencia
+
+                    </span>
+
+
+                    <strong
+                        class="info-value"
+                        id="reference">
+
+                        1973
+
+                    </strong>
+
+
+                </div>
+
+
+
+                <!-- COLOR -->
+
+                <div class="info-card">
+
+
+                    <img
+                        src="../color.png"
+                        alt="Color">
+
+
+                    <span class="info-label">
+
+                        Color
+
+                    </span>
+
+
+                    <strong
+                        class="info-value"
+                        id="color">
+
+                        Amarillo
+
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ESCENARIO + CARRO
+            ================================================= -->
+
+            <div
+                class="race-scene"
+                id="raceScene">
+
+
+                <div
+                    class="car"
+                    id="car">
+
+
+                    <img
+                        id="carImage"
+                        src="../carro1.png"
+                        alt="Escarabajo amarillo">
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CONTROLES
+            ================================================= -->
+
+            <div class="vehicle-controls">
+
+
+                <button
+                    class="control-button"
+                    id="on">
+
+                    <img
+                        src="../encender.png"
+                        alt="Encender">
+
+                </button>
+
+
+
+                <button
+                    class="control-button"
+                    id="forward">
+
+                    <img
+                        src="../avanzar.png"
+                        alt="Avanzar">
+
+                </button>
+
+
+
+                <button
+                    class="control-button"
+                    id="stop">
+
+                    <img
+                        src="../detener.png"
+                        alt="Detener">
+
+                </button>
+
+
+
+                <button
+                    class="control-button"
+                    id="back">
+
+                    <img
+                        src="../retroceder.png"
+                        alt="Retroceder">
+
+                </button>
+
+
+
+                <button
+                    class="control-button"
+                    id="off">
+
+                    <img
+                        src="../apagar.png"
+                        alt="Apagar">
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           ELEMENTOS
+        ===================================================== */
+
+        const vehicle =
+            document.getElementById("vehicle");
+
+        const modeButton =
+            document.getElementById("modeButton");
+
+        const raceScene =
+            document.getElementById("raceScene");
+
+        const car =
+            document.getElementById("car");
+
+        const carImage =
+            document.getElementById("carImage");
+
+        const model =
+            document.getElementById("model");
+
+        const reference =
+            document.getElementById("reference");
+
+        const color =
+            document.getElementById("color");
+
+        const prev =
+            document.getElementById("prev");
+
+        const next =
+            document.getElementById("next");
+
+        const on =
+            document.getElementById("on");
+
+        const forward =
+            document.getElementById("forward");
+
+        const stop =
+            document.getElementById("stop");
+
+        const back =
+            document.getElementById("back");
+
+        const off =
+            document.getElementById("off");
+
+
+
+        /* =====================================================
+           INFORMACIÓN DE LOS 5 ESCARABAJOS
+        ===================================================== */
+
+        const cars = [
+
+            {
+                image: "../carro1.png",
+
+                model: "Escarabajo",
+
+                reference: "1973",
+
+                color: "Amarillo"
+            },
+
+
+            {
+                image: "../carro2.png",
+
+                model: "Escarabajo",
+
+                reference: "1973",
+
+                color: "Morado"
+            },
+
+
+            {
+                image: "../carro3.png",
+
+                model: "Escarabajo",
+
+                reference: "1973",
+
+                color: "Crema"
+            },
+
+
+            {
+                image: "../carro4.png",
+
+                model: "Escarabajo",
+
+                reference: "1973",
+
+                color: "Negro"
+            },
+
+
+            {
+                image: "../carro5.png",
+
+                model: "Escarabajo",
+
+                reference: "1973",
+
+                color: "Morado / Amarillo"
+            }
+
+        ];
+
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        let currentCar = 0;
+
+        let vehicleOn = false;
+
+        let moving = false;
+
+        let darkMode = false;
+
+
+
+        /* =====================================================
+           MOSTRAR CARRO
+        ===================================================== */
+
+        function showCar() {
+
+
+            const selected =
+                cars[currentCar];
+
+
+            carImage.src =
+                selected.image;
+
+
+            carImage.alt =
+                "Escarabajo " +
+                selected.color;
+
+
+            model.textContent =
+                selected.model;
+
+
+            reference.textContent =
+                selected.reference;
+
+
+            color.textContent =
+                selected.color;
+
+
+            car.classList.remove(
+                "forward",
+                "back"
+            );
+
+
+            raceScene.classList.remove(
+                "moving-forward",
+                "moving-back"
+            );
+
+
+            moving = false;
+
+        }
+
+
+
+        /* =====================================================
+           MODO DÍA / NOCHE
+        ===================================================== */
+
+        modeButton.addEventListener(
+            "click",
+            function () {
+
+
+                darkMode =
+                    !darkMode;
+
+
+                if (darkMode) {
+
+
+                    /* NOCHE */
+
+                    vehicle.classList.remove(
+                        "light"
+                    );
+
+
+                    raceScene.style.backgroundImage =
+                        "url('../fnoche.png')";
+
+
+                    modeButton.src =
+                        "../mnoche.png";
+
+
+                    modeButton.alt =
+                        "Modo noche";
+
+
+                }
+
+                else {
+
+
+                    /* DÍA */
+
+                    vehicle.classList.add(
+                        "light"
+                    );
+
+
+                    raceScene.style.backgroundImage =
+                        "url('../fdia.png')";
+
+
+                    modeButton.src =
+                        "../mdia.png";
+
+
+                    modeButton.alt =
+                        "Modo día";
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           SIGUIENTE CARRO
+        ===================================================== */
+
+        next.addEventListener(
+            "click",
+            function () {
+
+
+                currentCar++;
+
+
+                if (
+                    currentCar >=
+                    cars.length
+                ) {
+
+                    currentCar = 0;
+
+                }
+
+
+                showCar();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CARRO ANTERIOR
+        ===================================================== */
+
+        prev.addEventListener(
+            "click",
+            function () {
+
+
+                currentCar--;
+
+
+                if (
+                    currentCar < 0
+                ) {
+
+                    currentCar =
+                        cars.length - 1;
+
+                }
+
+
+                showCar();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           ENCENDER
+        ===================================================== */
+
+        on.addEventListener(
+            "click",
+            function () {
+                vehicleOn = true;
+
+                car.classList.add(
+                    "on"
+                );
+            }
+        );
+
+
+                /* =====================================================
+           AVANZAR
+        ===================================================== */
+
+        forward.addEventListener(
+            "click",
+            function () {
+
+                if (!vehicleOn) {
+                    return;
+                }
+
+                moving = true;
+
+                car.classList.remove(
+                    "back"
+                );
+
+                car.classList.add(
+                    "forward"
+                );
+
+                raceScene.classList.remove(
+                    "moving-back"
+                );
+
+                raceScene.classList.add(
+                    "moving-forward"
+                );
+            }
+        );
+
+
+                /* =====================================================
+           RETROCEDER
+        ===================================================== */
+
+        back.addEventListener(
+            "click",
+            function () {
+
+                if (!vehicleOn) {
+                    return;
+                }
+
+                moving = true;
+
+                car.classList.remove(
+                    "forward"
+                );
+
+                car.classList.add(
+                    "back"
+                );
+
+                raceScene.classList.remove(
+                    "moving-forward"
+                );
+
+                raceScene.classList.add(
+                    "moving-back"
+                );
+            }
+        );
+
+
+                /* =====================================================
+           DETENER
+        ===================================================== */
+
+        stop.addEventListener(
+            "click",
+            function () {
+
+                if (!vehicleOn) {
+                    return;
+                }
+
+                moving = false;
+
+                car.classList.remove(
+                    "forward",
+                    "back"
+                );
+
+                raceScene.classList.remove(
+                    "moving-forward",
+                    "moving-back"
+                );
+            }
+        );
+
+
+                /* =====================================================
+           APAGAR
+        ===================================================== */
+
+        off.addEventListener(
+            "click",
+            function () {
+
+                vehicleOn = false;
+                moving = false;
+
+                car.classList.remove(
+                    "on",
+                    "forward",
+                    "back"
+                );
+
+                raceScene.classList.remove(
+                    "moving-forward",
+                    "moving-back"
+                );
+            }
+        );
+
+
+                /* =====================================================
+           INICIAR
+        ===================================================== */
+
+        showCar();
+
+
+    </script>
+
+
+</body>
+
+</html>
